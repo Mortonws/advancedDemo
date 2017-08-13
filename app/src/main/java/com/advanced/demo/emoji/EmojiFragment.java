@@ -6,16 +6,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.GridView;
 
 import com.advanced.demo.R;
+
+import java.util.ArrayList;
 
 /**
  * @author by morton_ws on 2017/8/12.
  */
 
 public class EmojiFragment extends Fragment {
-    public final static String EXTRA_EMOJI = "com.advanced.demo.emoji.EXTRA_EMOJI";
+    public final static String EXTRA_EMOJI_LIST = "com.advanced.demo.emoji.EXTRA_EMOJI_LIST";
 
     @Nullable
     @Override
@@ -27,9 +29,11 @@ public class EmojiFragment extends Fragment {
 
 
     private void initView(View rootView) {
-        TextView emojiTitle = (TextView) rootView.findViewById(R.id.emoji_title);
-        Bundle data = getArguments();
-        String content = data.getString(EXTRA_EMOJI);
-        emojiTitle.setText("Page Index: " + content);
+        Bundle bundle = getArguments();
+        ArrayList<String> emojiStrList = bundle.getStringArrayList(EXTRA_EMOJI_LIST);
+        GridView mEmojiGrid = (GridView) rootView.findViewById(R.id.emoji_grid);
+        EmojiGridAdapter adapter = new EmojiGridAdapter(getContext());
+        mEmojiGrid.setAdapter(adapter);
+        adapter.addData(emojiStrList);
     }
 }

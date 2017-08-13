@@ -21,11 +21,22 @@ public class EmojiActivity extends BaseActivity {
     @Override
     protected void initPages() {
         super.initPages();
+        List<EmojiBean.Emoji> emojiList = EmojiUtils.getEmojiData().list;
+        int sizeGap = emojiList.size() / 3;
+        int emojiListIndex = 0;
+
         List<Fragment> fragmentList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
+            List<EmojiBean.Emoji> subEmojiList = emojiList.subList(emojiListIndex, emojiListIndex + sizeGap);
+            ArrayList<String> emojiStrList = new ArrayList<>();
+            emojiListIndex = emojiListIndex + sizeGap;
+            for (EmojiBean.Emoji emoji : subEmojiList) {
+                String emojiContent = EmojiUtils.getEmoji(emoji.content);
+                emojiStrList.add(emojiContent);
+            }
             Fragment fragment = new EmojiFragment();
             Bundle bundle = new Bundle();
-            bundle.putString(EmojiFragment.EXTRA_EMOJI, String.valueOf(i + 1));
+            bundle.putStringArrayList(EmojiFragment.EXTRA_EMOJI_LIST, emojiStrList);
             fragment.setArguments(bundle);
             fragmentList.add(fragment);
         }
