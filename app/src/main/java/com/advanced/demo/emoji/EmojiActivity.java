@@ -3,6 +3,8 @@ package com.advanced.demo.emoji;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.R;
@@ -17,6 +19,7 @@ import java.util.List;
 public class EmojiActivity extends BaseActivity {
 
     private final static int DEFAULT_PER_PAGE_EMOJI_SIZE = 21;
+    private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
     private ViewPager mEmojiViewPager;
     private EmojiPagerAdapter mAdapter;
 
@@ -89,6 +92,7 @@ public class EmojiActivity extends BaseActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
+                mScrollState = state;
                 if (state == ViewPager.SCROLL_STATE_IDLE) {
                     if (pageSelectedIndex == 0) {
                         int index = mAdapter.getCount() - 2;
@@ -99,6 +103,13 @@ public class EmojiActivity extends BaseActivity {
                         mEmojiViewPager.setCurrentItem(1, false);
                     }
                 }
+            }
+        });
+
+        mEmojiViewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return mScrollState == ViewPager.SCROLL_STATE_IDLE;
             }
         });
     }
