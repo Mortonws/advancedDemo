@@ -15,7 +15,6 @@ import java.util.List;
  */
 
 public class EmojiActivity extends BaseActivity {
-    private final static String TAG = "EmojiActivity";
 
     private final static int DEFAULT_PER_PAGE_EMOJI_SIZE = 21;
     private ViewPager mEmojiViewPager;
@@ -86,12 +85,10 @@ public class EmojiActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 pageSelectedIndex = position;
-//                Log.i(TAG, "onPageSelected: " + position);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-//                Log.i(TAG, "onPageScrollStateChanged: " + state);
                 if (state == ViewPager.SCROLL_STATE_IDLE) {
                     if (pageSelectedIndex == 0) {
                         int index = mAdapter.getCount() - 2;
