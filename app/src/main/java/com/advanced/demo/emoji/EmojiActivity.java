@@ -15,6 +15,9 @@ import java.util.List;
  */
 
 public class EmojiActivity extends BaseActivity {
+    private final static String TAG = "EmojiActivity";
+
+    private final static int DEFAULT_PER_PAGE_EMOJI_SIZE = 21;
     private ViewPager mEmojiViewPager;
     private EmojiPagerAdapter mAdapter;
 
@@ -22,25 +25,44 @@ public class EmojiActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         List<EmojiBean.Emoji> emojiList = EmojiUtils.getEmojiData().list;
-        int sizeGap = emojiList.size() / 3;
         int emojiListIndex = 0;
 
         List<Fragment> fragmentList = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            List<EmojiBean.Emoji> subEmojiList = emojiList.subList(emojiListIndex, emojiListIndex + sizeGap);
-            ArrayList<String> emojiStrList = new ArrayList<>();
-            emojiListIndex = emojiListIndex + sizeGap;
-            for (EmojiBean.Emoji emoji : subEmojiList) {
-                String emojiContent = EmojiUtils.getEmoji(emoji.content);
-                emojiStrList.add(emojiContent);
+        int fragmentPages = emojiList.size() / DEFAULT_PER_PAGE_EMOJI_SIZE;
+        if (emojiList.size() % DEFAULT_PER_PAGE_EMOJI_SIZE != 0) {
+            fragmentPages++;
+        }
+        for (int i = 0; i < fragmentPages; i++) {
+            ArrayList<EmojiBean.Emoji> subEmojiList = new ArrayList<>();
+            int remainEmojiListSize = emojiList.size() - emojiListIndex - 1;
+            if (remainEmojiListSize < DEFAULT_PER_PAGE_EMOJI_SIZE) {
+                subEmojiList.addAll(emojiList.subList(emojiListIndex, emojiListIndex + remainEmojiListSize));
+                emojiListIndex = emojiListIndex + remainEmojiListSize;
+            } else {
+                subEmojiList.addAll(emojiList.subList(emojiListIndex, emojiListIndex + DEFAULT_PER_PAGE_EMOJI_SIZE));
+                emojiListIndex = emojiListIndex + DEFAULT_PER_PAGE_EMOJI_SIZE;
             }
+
             Fragment fragment = new EmojiFragment();
             Bundle bundle = new Bundle();
-            bundle.putStringArrayList(EmojiFragment.EXTRA_EMOJI_LIST, emojiStrList);
+            bundle.putParcelableArrayList(EmojiFragment.EXTRA_EMOJI_LIST, subEmojiList);
             fragment.setArguments(bundle);
             fragmentList.add(fragment);
         }
+        boolean addFirstLastFragment = false;
+        if (fragmentList.size() > 1) {
+            addFirstLastFragment = true;
+            Fragment firstFragment = new EmojiFragment();
+            firstFragment.setArguments(fragmentList.get(0).getArguments());
+            Fragment lastFragment = new EmojiFragment();
+            lastFragment.setArguments(fragmentList.get(fragmentList.size() - 1).getArguments());
+            fragmentList.add(0, lastFragment);
+            fragmentList.add(fragmentList.size(), firstFragment);
+        }
         mAdapter.addAllData(fragmentList);
+        if (addFirstLastFragment) {
+            mEmojiViewPager.setCurrentItem(1);
+        }
     }
 
     @Override
@@ -49,6 +71,39 @@ public class EmojiActivity extends BaseActivity {
         mEmojiViewPager = (ViewPager) findViewById(R.id.emoji_view_pager);
         mAdapter = new EmojiPagerAdapter(getSupportFragmentManager());
         mEmojiViewPager.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void initListener() {
+        super.initListener();
+        mEmojiViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            int pageSelectedIndex = 0;
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                pageSelectedIndex = position;
+//                Log.i(TAG, "onPageSelected: " + position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+//                Log.i(TAG, "onPageScrollStateChanged: " + state);
+                if (state == ViewPager.SCROLL_STATE_IDLE) {
+                    if (pageSelectedIndex == 0) {
+                        int index = mAdapter.getCount() - 2;
+                        if (index >= 0) {
+                            mEmojiViewPager.setCurrentItem(mAdapter.getCount() - 2, false);
+                        }
+                    } else if (pageSelectedIndex == mAdapter.getCount() - 1) {
+                        mEmojiViewPager.setCurrentItem(1, false);
+                    }
+                }
+            }
+        });
     }
 
     @Override

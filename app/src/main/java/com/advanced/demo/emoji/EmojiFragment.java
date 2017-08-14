@@ -30,10 +30,10 @@ public class EmojiFragment extends Fragment {
 
     private void initView(View rootView) {
         Bundle bundle = getArguments();
-        ArrayList<String> emojiStrList = bundle.getStringArrayList(EXTRA_EMOJI_LIST);
+        ArrayList<EmojiBean.Emoji> emojiList = bundle.getParcelableArrayList(EXTRA_EMOJI_LIST);
         GridView mEmojiGrid = (GridView) rootView.findViewById(R.id.emoji_grid);
         EmojiGridAdapter adapter = new EmojiGridAdapter(getContext());
         mEmojiGrid.setAdapter(adapter);
-        adapter.addData(emojiStrList);
+        adapter.addData(emojiList);
     }
 }

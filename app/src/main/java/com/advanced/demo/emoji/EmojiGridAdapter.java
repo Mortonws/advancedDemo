@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 public class EmojiGridAdapter extends BaseAdapter {
-    private List<String> mEmojiList = new ArrayList<>();
+    private List<EmojiBean.Emoji> mEmojiList = new ArrayList<>();
     private Context mContext;
     private LayoutInflater mInflater;
 
@@ -32,7 +32,7 @@ public class EmojiGridAdapter extends BaseAdapter {
     }
 
     @Override
-    public String getItem(int position) {
+    public EmojiBean.Emoji getItem(int position) {
         return mEmojiList.get(position);
     }
 
@@ -52,11 +52,11 @@ public class EmojiGridAdapter extends BaseAdapter {
         } else {
             holder = (EmojiHolder) convertView.getTag();
         }
-        holder.emojiContent.setText(mEmojiList.get(position));
+        holder.emojiContent.setText(EmojiUtils.getEmoji(mEmojiList.get(position).content));
         return convertView;
     }
 
-    public void addData(List<String> data) {
+    public void addData(List<EmojiBean.Emoji> data) {
         this.mEmojiList.addAll(data);
         notifyDataSetChanged();
     }
