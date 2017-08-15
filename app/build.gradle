@@ -26,4 +26,7 @@ dependencies {
     compile project(':baselib')
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.alibaba:fastjson:1.2.36'
+
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 }

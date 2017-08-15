@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.R;
+import com.advanced.demo.retrofit.RetrofitRestClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class EmojiActivity extends BaseActivity {
     @Override
     protected void initPages() {
         super.initPages();
+        requestByRetrofit();
         List<EmojiBean.Emoji> emojiList = EmojiUtils.getEmojiData().list;
         int emojiListIndex = 0;
 
@@ -112,6 +114,12 @@ public class EmojiActivity extends BaseActivity {
                 return mScrollState == ViewPager.SCROLL_STATE_IDLE;
             }
         });
+    }
+
+    private void requestByRetrofit() {
+        RetrofitRestClient requestClient = new RetrofitRestClient();
+        requestClient.createClient();
+        requestClient.request();
     }
 
     @Override

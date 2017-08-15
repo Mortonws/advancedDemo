@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.advanced.demo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +20,17 @@
         </activity>
 
         <activity android:name=".emoji.EmojiActivity"
+                  android:screenOrientation="nosensor" />
+
+        <activity android:name=".singleTask.ActivityA"
+                  android:screenOrientation="nosensor"
+                  android:launchMode="singleTask"/>
+        <activity android:name=".singleTask.ActivityB"
+                  android:screenOrientation="nosensor" />
+        <activity android:name=".singleTask.ActivityC"
+                  android:screenOrientation="nosensor" />
+        <activity android:name=".singleTask.ActivityD"
+                  android:launchMode="singleInstance"
                   android:screenOrientation="nosensor" />
     </application>
 
