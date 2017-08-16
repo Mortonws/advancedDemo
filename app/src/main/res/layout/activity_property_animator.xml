@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/property_value"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        android:layout_height="@dimen/base_view_height"/>
+
+    <Button
+        android:id="@+id/animator_restart"
+        android:text="Restart"
+        android:background="@color/transparent_black_50"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

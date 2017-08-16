@@ -32,6 +32,8 @@
         <activity android:name=".singleTask.ActivityD"
                   android:launchMode="singleInstance"
                   android:screenOrientation="nosensor" />
+        <activity android:name=".propertyAnimator.PropertyAnimatorActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>
