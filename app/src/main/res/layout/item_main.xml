@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:gravity="center_vertical"
         android:paddingLeft="24dp"
-        android:textColor="@color/jumei_red"
+        android:textColor="@color/com_tenpay_back_btn_bg_pressed"
         android:textSize="24dp"
         tools:text="Hello World"/>
 
