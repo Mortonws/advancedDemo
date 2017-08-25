@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/content_input"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/shape_edit_text"
+        android:paddingLeft="12dp"
+        android:paddingRight="35dp"
+        android:hint="input your name..."
+        android:textColor="@color/cor_333333"
+        android:textSize="14sp"/>
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignRight="@+id/content_input"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="29dp"
+        android:background="@mipmap/icon_delete"/>
+
+    <TextView
+        android:id="@+id/json_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_below="@+id/content_input"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/jumei_title_black"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+</RelativeLayout>
