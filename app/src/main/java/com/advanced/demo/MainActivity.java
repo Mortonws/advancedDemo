@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 
 import com.advanced.baselib.base.BaseActivity;
+import com.advanced.demo.camera.TakePicByCameraActivity;
 import com.advanced.demo.edittextUI.EditTextUIActivity;
 import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(PropertyAnimatorActivity.class, "PropertyValueAnimator");
         mAdapter.addData(EditTextUIActivity.class, "EditText Delete");
         mAdapter.addData(LockDeviceActivity.class, "Lock Device");
+        mAdapter.addData(TakePicByCameraActivity.class, "Take Pic");
     }
 
     @Override

@@ -3,6 +3,7 @@
           package="com.advanced.demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -47,6 +48,9 @@
                     android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".camera.TakePicByCameraActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>
