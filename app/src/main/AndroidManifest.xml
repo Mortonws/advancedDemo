@@ -51,6 +51,9 @@
 
         <activity android:name=".camera.TakePicByCameraActivity"
                   android:screenOrientation="nosensor" />
+
+        <activity android:name=".rotationSensor.RotationSensorActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>

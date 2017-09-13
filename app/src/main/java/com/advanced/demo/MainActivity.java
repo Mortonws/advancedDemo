@@ -12,6 +12,7 @@ import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
+import com.advanced.demo.rotationSensor.RotationSensorActivity;
 import com.advanced.demo.singleTask.ActivityD;
 
 public class MainActivity extends BaseActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(EditTextUIActivity.class, "EditText Delete");
         mAdapter.addData(LockDeviceActivity.class, "Lock Device");
         mAdapter.addData(TakePicByCameraActivity.class, "Take Pic");
+        mAdapter.addData(RotationSensorActivity.class, "Rotation Param");
     }
 
     @Override
