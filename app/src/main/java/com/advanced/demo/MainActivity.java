@@ -7,6 +7,7 @@ import android.view.WindowManager;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.camera.TakePicByCameraActivity;
+import com.advanced.demo.contacts.ReadContactActivity;
 import com.advanced.demo.edittextUI.EditTextUIActivity;
 import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
@@ -31,6 +32,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(LockDeviceActivity.class, "Lock Device");
         mAdapter.addData(TakePicByCameraActivity.class, "Take Pic");
         mAdapter.addData(RotationSensorActivity.class, "Rotation Param");
+        mAdapter.addData(ReadContactActivity.class, "Read Contact");
     }
 
     @Override

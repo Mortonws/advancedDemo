@@ -16,6 +16,7 @@ import java.util.HashMap;
  */
 
 public class RotationSensorActivity extends BaseActivity {
+    private final static String TAG = "Collect.SensorGyro";
     private Button mGetRotationParam;
     private TextView mContentRotationParam;
     private DeviceGyroscopeProperty mDeviceGyroscopeProperty;
@@ -70,6 +71,13 @@ public class RotationSensorActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         getRotationParam();
+//        PropertyCollector collector = new PropertyCollector();
+//        collector.collect(mContext, new DevicePropertyCollectListener() {
+//            @Override
+//            public void onCollect(Map<String, String> property) {
+//                Log.i(TAG, JSON.toJSONString(property));
+//            }
+//        });
     }
 
     @Override
