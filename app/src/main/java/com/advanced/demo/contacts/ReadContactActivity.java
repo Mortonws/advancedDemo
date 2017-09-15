@@ -1,9 +1,15 @@
 package com.advanced.demo.contacts;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +24,7 @@ import com.advanced.demo.R;
 public class ReadContactActivity extends BaseActivity {
     private final static String TAG = "ReadContact";
     private final static int REQUEST_CODE_READ_CONTACT = 1001;
+    private final static int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 2001;
     private Button mReadContact;
     private TextView mContentContact;
 
@@ -39,12 +46,35 @@ public class ReadContactActivity extends BaseActivity {
         mReadContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-//                startActivityForResult(intent, REQUEST_CODE_READ_CONTACT);
+                if (ContextCompat.checkSelfPermission(mContext,
+                        Manifest.permission.READ_CONTACTS)
+                        != PackageManager.PERMISSION_GRANTED) {
 
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
-                startActivityForResult(intent, REQUEST_CODE_READ_CONTACT);
+                    // Should we show an explanation?
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(ReadContactActivity.this, Manifest.permission.READ_CONTACTS)) {
+
+                        // Show an expanation to the user *asynchronously* -- don't block
+                        // this thread waiting for the user's response! After the user
+                        // sees the explanation, try again to request the permission.
+
+                    } else {
+
+                        // No explanation needed, we can request the permission.
+
+                        ActivityCompat.requestPermissions(ReadContactActivity.this,
+                                new String[]{Manifest.permission.READ_CONTACTS},
+                                MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+
+                        // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                        // app-defined int constant. The callback method gets the
+                        // result of the request.
+                    }
+                } else {
+                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                    intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+                    intent.putExtra("js_callback", "callback_js_contact");
+                    startActivityForResult(intent, REQUEST_CODE_READ_CONTACT);
+                }
             }
         });
     }
@@ -57,32 +87,6 @@ public class ReadContactActivity extends BaseActivity {
                 case REQUEST_CODE_READ_CONTACT:
                     if (data != null) {
                         StringBuilder contactBuilder = new StringBuilder();
-//                        Uri contact = data.getData();
-//                        ContentResolver contentResolver = getContentResolver();
-//                        Cursor cursor = contentResolver.query(contact, null, null, null, null);
-//                        if (cursor != null) {
-//                            while (cursor.moveToNext()) {
-//                                String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
-//
-//                                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-//                                contactBuilder.append("name:").append(name).append("\n");
-//                                if (Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-//                                    Cursor phoneCursor = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-//                                            null,
-//                                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
-//                                            new String[]{id},
-//                                            null);
-//                                    if (phoneCursor != null) {
-//                                        while (phoneCursor.moveToNext()) {
-//                                            String phone = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-//                                            contactBuilder.append("phoneNumber:").append(phone).append("\n");
-//                                        }
-//                                        phoneCursor.close();
-//                                    }
-//                                }
-//                            }
-//                            cursor.close();
-//                        }
                         Uri uri = data.getData();
                         if (uri != null) {
                             Cursor cursor = getContentResolver().query(uri,
@@ -99,7 +103,8 @@ public class ReadContactActivity extends BaseActivity {
                                 cursor.close();
                             }
                         }
-                        mContentContact.setText(contactBuilder.toString());
+                        String jsCallback = data.getExtras().getString("js_callback");
+                        mContentContact.setText(contactBuilder.toString() + "\njscallback" + (TextUtils.isEmpty(jsCallback) ? "" : jsCallback));
                     }
 
                     break;
@@ -107,45 +112,35 @@ public class ReadContactActivity extends BaseActivity {
         }
     }
 
-    //获取联系人电话
-    private String getContactPhone(Cursor cursor) {
 
-        int phoneColumn = cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER);
-        int phoneNum = cursor.getInt(phoneColumn);
-        String phoneResult = "";
-        //System.out.print(phoneNum);
-        if (phoneNum > 0) {
-            // 获得联系人的ID号
-            int idColumn = cursor.getColumnIndex(ContactsContract.Contacts._ID);
-            String contactId = cursor.getString(idColumn);
-            // 获得联系人的电话号码的cursor;
-            Cursor phones = getContentResolver().query(
-                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                    null,
-                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
-                    null, null);
-            //int phoneCount = phones.getCount();
-            //allPhoneNum = new ArrayList<String>(phoneCount);
-            if (phones.moveToFirst()) {
-                // 遍历所有的电话号码
-                for (; !phones.isAfterLast(); phones.moveToNext()) {
-                    int index = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                    int typeindex = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE);
-                    int phone_type = phones.getInt(typeindex);
-                    String phoneNumber = phones.getString(index);
-                    switch (phone_type) {
-                        case 2:
-                            phoneResult = phoneNumber;
-                            break;
-                    }
-                    //allPhoneNum.add(phoneNumber);
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                    intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+                    startActivityForResult(intent, REQUEST_CODE_READ_CONTACT);
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    mContentContact.setText("no permission read contacts");
                 }
-                if (!phones.isClosed()) {
-                    phones.close();
-                }
+                break;
             }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
         }
-        return phoneResult;
     }
 
     @Override
