@@ -50,11 +50,4 @@ public class ActivityD extends BaseActivity {
         super.onDestroy();
         Log.i("SingleTask", "ActivityD Destroy");
     }
-
-    private final static String TAG = "SingleTask";
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, "activityD onResume");
-    }
 }
