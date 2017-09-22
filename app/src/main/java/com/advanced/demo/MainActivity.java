@@ -15,6 +15,7 @@ import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
 import com.advanced.demo.rotationSensor.RotationSensorActivity;
 import com.advanced.demo.singleTask.ActivityD;
+import com.advanced.demo.transctionView.CircleTransactionViewActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(TakePicByCameraActivity.class, "Take Pic");
         mAdapter.addData(RotationSensorActivity.class, "Rotation Param");
         mAdapter.addData(ReadContactActivity.class, "Read Contact");
+        mAdapter.addData(CircleTransactionViewActivity.class, "Transaction View");
     }
 
     @Override

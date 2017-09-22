@@ -59,6 +59,9 @@
 
         <activity android:name=".contacts.ReadContactActivity"
                   android:screenOrientation="nosensor" />
+
+        <activity android:name=".transctionView.CircleTransactionViewActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>

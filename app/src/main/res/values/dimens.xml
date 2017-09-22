@@ -3,4 +3,7 @@
     <dimen name="emoji_height">240dp</dimen>
 
     <dimen name="base_view_height">48dp</dimen>
+
+    <dimen name="hole_view_width">320dp</dimen>
+    <dimen name="hole_view_height">320dp</dimen>
 </resources>
