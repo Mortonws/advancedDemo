@@ -15,11 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <activity android:name=".emoji.EmojiActivity"
@@ -55,7 +51,13 @@
                   android:screenOrientation="nosensor" />
 
         <activity android:name=".rotationSensor.RotationSensorActivity"
-                  android:screenOrientation="nosensor" />
+                  android:screenOrientation="nosensor" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <activity android:name=".contacts.ReadContactActivity"
                   android:screenOrientation="nosensor" />
