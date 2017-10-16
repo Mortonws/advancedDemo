@@ -6,4 +6,5 @@
 
     <dimen name="hole_view_width">320dp</dimen>
     <dimen name="hole_view_height">320dp</dimen>
+
 </resources>
