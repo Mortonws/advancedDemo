@@ -67,6 +67,9 @@
 
         <activity android:name=".cameraDetect.CameraDetectActivity"
                   android:screenOrientation="nosensor" />
+
+        <activity android:name=".cameraPreview.CameraPreviewActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>

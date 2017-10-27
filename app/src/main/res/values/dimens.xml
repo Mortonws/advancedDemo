@@ -7,4 +7,9 @@
     <dimen name="hole_view_width">320dp</dimen>
     <dimen name="hole_view_height">320dp</dimen>
 
+    <dimen name="grid_data_list_width">280dp</dimen>
+    <dimen name="grid_data_list_height">320dp</dimen>
+
+    <dimen name="list_appraise_star_margin">60dp</dimen>
+
 </resources>
