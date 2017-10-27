@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/movie_avatar"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        android:layout_margin="12dp"
+        android:src="@color/jumeihui_cc"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:layout_toRightOf="@+id/movie_avatar"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/movie_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="肖生克的救赎"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@mipmap/appraise_star"/>
+
+            <TextView
+                android:id="@+id/rate_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:textColor="@color/cor_89"
+                android:textSize="14sp"
+                tools:text="9.6"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/director_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/cor_89"
+            android:textSize="14sp"
+            tools:text="弗兰克·德拉邦特"/>
+
+        <TextView
+            android:id="@+id/actor_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/cor_89"
+            android:textSize="14sp"
+            tools:text="蒂姆·罗宾斯"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/movie_avatar"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/jumeihui_cc"/>
+
+</RelativeLayout>

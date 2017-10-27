@@ -119,7 +119,7 @@ public class EmojiActivity extends BaseActivity {
     private void requestByRetrofit() {
         RetrofitRestClient requestClient = new RetrofitRestClient();
         requestClient.createClient();
-        requestClient.request();
+        requestClient.request(0, 10);
     }
 
     @Override

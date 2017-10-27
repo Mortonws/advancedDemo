@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_retrofit_request"
+        android:layout_width="320dp"
+        android:layout_height="@dimen/base_view_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_retrofit_request"
+        android:text="Request"/>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="@dimen/base_view_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/request_start"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape_request_edit"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/request_count"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_request_edit"
+            android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:text="10"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/jumeihui_cc"/>
+</LinearLayout>

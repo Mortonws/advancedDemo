@@ -2,8 +2,6 @@ package com.advanced.demo.retrofit;
 
 import android.util.Log;
 
-import java.util.List;
-
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,9 +15,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitRestClient {
     private final static String TAG = "RetrofitClient";
-    private final static String API_BASE_URL = "https://api.github.com/";
+    private final static String API_BASE_URL = "https://api.douban.com/v2/movie/";
 
     private GitHubClient mClient;
+    private IRetrofitRequestListener mRequestListener;
 
     public void createClient() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
@@ -31,24 +30,37 @@ public class RetrofitRestClient {
         mClient = retrofit.create(GitHubClient.class);
     }
 
-    public void request() {
-        Call<List<GitHubRepo>> call = mClient.reposForUser("fs-opensource");
+    public void request(int start, int count) {
+        Call<MovieResponse> call = mClient.getTop250(start, count);
 
-        call.enqueue(new Callback<List<GitHubRepo>>() {
+        call.enqueue(new Callback<MovieResponse>() {
             @Override
-            public void onResponse(Call<List<GitHubRepo>> call, Response<List<GitHubRepo>> response) {
-                List<GitHubRepo> data = response.body();
+            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
+                MovieResponse data = response.body();
                 if (data != null) {
                     Log.i(TAG, "response data: " + data.toString());
+                    if (mRequestListener != null) {
+                        mRequestListener.onSuccess(data);
+                    }
                 } else {
                     Log.w(TAG, "response is null");
+                    if (mRequestListener != null) {
+                        mRequestListener.onError("response is null");
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<GitHubRepo>> call, Throwable t) {
+            public void onFailure(Call<MovieResponse> call, Throwable t) {
                 Log.e(TAG, "response failed", t);
+                if (mRequestListener != null) {
+                    mRequestListener.onFailure(t);
+                }
             }
         });
+    }
+
+    public void addRequestListener(IRetrofitRequestListener requestListener) {
+        this.mRequestListener = requestListener;
     }
 }

@@ -15,6 +15,7 @@ import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
+import com.advanced.demo.retrofit.RetrofitRequestActivity;
 import com.advanced.demo.rotationSensor.RotationSensorActivity;
 import com.advanced.demo.singleTask.ActivityD;
 import com.advanced.demo.transctionView.CircleTransactionViewActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(RetrofitRequestActivity.class, "Retrofit Request");
         mAdapter.addData(EmojiActivity.class, "Emoji");
         mAdapter.addData(ActivityD.class, "Start Page D");
         mAdapter.addData(PropertyAnimatorActivity.class, "PropertyValueAnimator");
