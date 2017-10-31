@@ -5,9 +5,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/movie_list"
+    <TextView
+        android:id="@+id/movie_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="@dimen/base_view_height"
+        android:gravity="center"
+        android:text="豆瓣电影Top250"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_c3c3c3"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/movie_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/movie_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

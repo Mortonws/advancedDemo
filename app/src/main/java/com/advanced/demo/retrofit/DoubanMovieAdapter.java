@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.advanced.demo.R;
 import com.advanced.demo.retrofit.viewHolder.DouBanMovieViewHolder;
 import com.advanced.demo.retrofit.viewHolder.MovieBaseViewHolder;
-import com.advanced.demo.retrofit.viewHolder.MovieHeaderViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,6 @@ import java.util.List;
  */
 
 public class DoubanMovieAdapter extends RecyclerView.Adapter<MovieBaseViewHolder> {
-    private final static int MOVIE_TYPE_HEADER = 0;
     private final static int MOVIE_TYPE_ITEM = 1;
 
     private Context mContext;
@@ -33,38 +31,24 @@ public class DoubanMovieAdapter extends RecyclerView.Adapter<MovieBaseViewHolder
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
-            return MOVIE_TYPE_HEADER;
-        }
         return MOVIE_TYPE_ITEM;
     }
 
     @Override
     public MovieBaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
-        MovieBaseViewHolder viewHolder;
-        if (viewType == MOVIE_TYPE_HEADER) {
-            view = mLayoutInflater.inflate(R.layout.item_douban_head, parent, false);
-            viewHolder = new MovieHeaderViewHolder(mContext, view);
-        } else {
-            view = mLayoutInflater.inflate(R.layout.item_douban_movie, parent, false);
-            viewHolder = new DouBanMovieViewHolder(mContext, view);
-        }
-        return viewHolder;
+        View view = mLayoutInflater.inflate(R.layout.item_douban_movie, parent, false);
+        return new DouBanMovieViewHolder(mContext, view);
     }
 
     @Override
     public void onBindViewHolder(MovieBaseViewHolder holder, int position) {
-        MovieResponse.MovieBean movie = null;
-        if (position != 0) {
-            movie = mMovieList.get(position - 1);
-        }
+        MovieResponse.MovieBean movie = mMovieList.get(position);
         holder.showMovie(movie);
     }
 
     @Override
     public int getItemCount() {
-        return mMovieList.size() + 1;
+        return mMovieList.size();
     }
 
     public void addMovieData(List<MovieResponse.MovieBean> data) {
