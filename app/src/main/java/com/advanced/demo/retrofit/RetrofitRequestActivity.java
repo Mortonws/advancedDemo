@@ -6,6 +6,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.advanced.baselib.base.BaseActivity;
@@ -50,6 +55,17 @@ public class RetrofitRequestActivity extends BaseActivity {
 
         mProgressDialog.show();
         mRetrofitClient.request(mMovieStart, mMovieCount);
+
+        ImageView mLoadingView = (ImageView) findViewById(R.id.icon_loading);
+        Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.movie_loading);
+        animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        animation.setRepeatCount(-1);
+
+        RotateAnimation rotateAnimation = new RotateAnimation(0f, 360f);
+        rotateAnimation.setDuration(1000);
+        rotateAnimation.setRepeatCount(-1);
+        mLoadingView.setAnimation(rotateAnimation);
+        rotateAnimation.start();
     }
 
     @Override
