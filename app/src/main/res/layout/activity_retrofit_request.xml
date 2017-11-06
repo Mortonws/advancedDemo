@@ -14,8 +14,6 @@
         android:textColor="@color/black"
         android:textSize="18dp"/>
 
-    <include layout="@layout/item_movie_bottom_loading" />
-
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
