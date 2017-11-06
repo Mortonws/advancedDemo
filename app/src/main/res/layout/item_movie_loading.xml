@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/root_loading"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/base_view_height">
+
+    <ImageView
+        android:id="@+id/icon_movie_loading"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/circle_red"/>
+
+    <TextView
+        android:id="@+id/load_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="没有更多数据了"
+        android:textColor="@color/color_c3c3c3"
+        android:textSize="14dp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

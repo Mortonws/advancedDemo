@@ -15,6 +15,17 @@ public class RetrofitRequestUtils {
 
     public final static int EVENT_REQUEST_MOVIE = 1001;
 
+    public interface ItemViewType {
+        int ITEM_TYPE_MOVIE = 1000;
+        int ITEM_TYPE_LOADING = 1001;
+    }
+
+    public interface LoadingStatus {
+        int STATUS_LOADING = 2001;
+        int STATUS_LOAD_COMPLETED = 2002;
+        int STATUS_LOADING_EMPTY = 2003;
+    }
+
     private static RetrofitRequestUtils sInstance;
     private List<WeakReference<Handler>> mWeakReferenceList = new ArrayList<>();
 

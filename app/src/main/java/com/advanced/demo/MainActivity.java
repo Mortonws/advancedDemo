@@ -1,8 +1,10 @@
 package com.advanced.demo;
 
+import android.os.Build;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.advanced.baselib.base.BaseActivity;
@@ -53,6 +55,19 @@ public class MainActivity extends BaseActivity {
         mainRecyclerView.setAdapter(mAdapter);
         mainRecyclerView.setLayoutManager(layoutManager);
         mainRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        Log.e("MainActivity", "isEmulator: " + isEmulator());
+    }
+
+    public static boolean isEmulator() {
+        return Build.FINGERPRINT.startsWith("generic")
+                || Build.FINGERPRINT.toLowerCase().contains("vbox")
+                || Build.FINGERPRINT.toLowerCase().contains("test-keys")
+                || Build.MODEL.contains("google_sdk")
+                || Build.MODEL.contains("Emulator")
+                || Build.MODEL.contains("Android SDK built for x86")
+                || Build.MANUFACTURER.contains("Genymotion")
+                || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
+                || "google_sdk".equals(Build.PRODUCT);
     }
 
     @Override

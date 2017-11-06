@@ -1,5 +1,7 @@
 package com.advanced.demo.retrofit;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.List;
 
 /**
@@ -15,6 +17,11 @@ public class MovieResponse {
     public List<MovieBean> subjects;
 
     public static class MovieBean {
+
+        @JSONField(serialize = false, deserialize = false)
+        public int itemType = RetrofitRequestUtils.ItemViewType.ITEM_TYPE_MOVIE;
+        @JSONField(serialize = false, deserialize = false)
+        public int loadingStatus = RetrofitRequestUtils.LoadingStatus.STATUS_LOAD_COMPLETED;
 
         public RatingBean rating;
         public String title;
