@@ -14,6 +14,7 @@ import com.advanced.demo.cameraPreview.CameraPreviewActivity;
 import com.advanced.demo.contacts.ReadContactActivity;
 import com.advanced.demo.edittextUI.EditTextUIActivity;
 import com.advanced.demo.emoji.EmojiActivity;
+import com.advanced.demo.emulator.EmulatorTestActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
@@ -26,11 +27,23 @@ public class MainActivity extends BaseActivity {
 
     private MainAdapter mAdapter;
 
+    public static boolean isEmulator() {
+        return Build.FINGERPRINT.startsWith("generic")
+                || Build.FINGERPRINT.toLowerCase().contains("vbox")
+                || Build.FINGERPRINT.toLowerCase().contains("test-keys")
+                || Build.MODEL.contains("google_sdk")
+                || Build.MODEL.contains("Emulator")
+                || Build.MODEL.contains("Android SDK built for x86")
+                || Build.MANUFACTURER.contains("Genymotion")
+                || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
+                || "google_sdk".equals(Build.PRODUCT);
+    }
 
     @Override
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(EmulatorTestActivity.class, "Emulator Test");
         mAdapter.addData(RetrofitRequestActivity.class, "Retrofit Request");
         mAdapter.addData(EmojiActivity.class, "Emoji");
         mAdapter.addData(ActivityD.class, "Start Page D");
@@ -56,18 +69,6 @@ public class MainActivity extends BaseActivity {
         mainRecyclerView.setLayoutManager(layoutManager);
         mainRecyclerView.setItemAnimator(new DefaultItemAnimator());
         Log.e("MainActivity", "isEmulator: " + isEmulator());
-    }
-
-    public static boolean isEmulator() {
-        return Build.FINGERPRINT.startsWith("generic")
-                || Build.FINGERPRINT.toLowerCase().contains("vbox")
-                || Build.FINGERPRINT.toLowerCase().contains("test-keys")
-                || Build.MODEL.contains("google_sdk")
-                || Build.MODEL.contains("Emulator")
-                || Build.MODEL.contains("Android SDK built for x86")
-                || Build.MANUFACTURER.contains("Genymotion")
-                || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
-                || "google_sdk".equals(Build.PRODUCT);
     }
 
     @Override

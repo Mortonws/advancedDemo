@@ -73,6 +73,9 @@
 
         <activity android:name=".retrofit.RetrofitRequestActivity"
                   android:screenOrientation="nosensor" />
+
+        <activity android:name=".emulator.EmulatorTestActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>
