@@ -3,13 +3,19 @@ package com.advanced.demo.emoji;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.R;
 import com.advanced.demo.retrofit.RetrofitRestClient;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +29,14 @@ public class EmojiActivity extends BaseActivity {
     private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
     private ViewPager mEmojiViewPager;
     private EmojiPagerAdapter mAdapter;
+
+    private Button mUrlConvert;
+    private EditText mUrlContent;
+    private TextView mUrlResult;
+    private Button mUrlReset;
+    private Button mUrlClear;
+
+    private String mDefaultUrlContent = "https://www.baidu.com?keywords=今天天气不错";
 
     @Override
     protected void initPages() {
@@ -75,6 +89,14 @@ public class EmojiActivity extends BaseActivity {
         mEmojiViewPager = (ViewPager) findViewById(R.id.emoji_view_pager);
         mAdapter = new EmojiPagerAdapter(getSupportFragmentManager());
         mEmojiViewPager.setAdapter(mAdapter);
+
+        mUrlContent = (EditText) findViewById(R.id.url_content);
+        mUrlConvert = (Button) findViewById(R.id.url_convert);
+        mUrlResult = (TextView) findViewById(R.id.url_result);
+        mUrlReset = (Button) findViewById(R.id.url_reset);
+        mUrlClear = (Button) findViewById(R.id.url_clear);
+
+        mUrlContent.setText(mDefaultUrlContent);
     }
 
     @Override
@@ -82,6 +104,7 @@ public class EmojiActivity extends BaseActivity {
         super.initListener();
         mEmojiViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             int pageSelectedIndex = 0;
+
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -114,6 +137,36 @@ public class EmojiActivity extends BaseActivity {
                 return mScrollState == ViewPager.SCROLL_STATE_IDLE;
             }
         });
+        mUrlConvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String content = mUrlContent.getText().toString();
+                if (!TextUtils.isEmpty(content)) {
+                    String result = content;
+                    try {
+                        result = URLEncoder.encode(content, "utf-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    mUrlResult.setText(result);
+                }
+            }
+        });
+        mUrlClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUrlContent.setText("");
+                mUrlResult.setText("");
+            }
+        });
+        mUrlReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUrlContent.setText(mDefaultUrlContent);
+                mUrlResult.setText("");
+            }
+        });
+
     }
 
     private void requestByRetrofit() {

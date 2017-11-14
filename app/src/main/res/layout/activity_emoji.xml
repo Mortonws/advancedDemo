@@ -9,4 +9,62 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/emoji_height"
         android:background="@color/jumei_white"/>
+
+
+    <EditText
+        android:id="@+id/url_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/base_view_height"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_retrofit_request"
+        android:padding="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/url_reset"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/base_view_height"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_retrofit_result"
+            android:text="URL Reset"
+            android:textColor="@color/holo_blue_bright"/>
+
+        <Button
+            android:id="@+id/url_clear"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/base_view_height"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_retrofit_result"
+            android:text="URL Clear"
+            android:textColor="@color/com_tenpay_money_text"/>
+
+        <Button
+            android:id="@+id/url_convert"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/base_view_height"
+            android:layout_weight="1"
+            android:background="@drawable/shape_retrofit_result"
+            android:text="URL Convert"
+            android:textColor="@color/jumei_red"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:padding="12dp"
+        android:textColor="@color/cor_333333"
+        android:textSize="16sp"
+        android:id="@+id/url_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_request_edit"
+        android:minHeight="@dimen/base_view_height"/>
 </LinearLayout>

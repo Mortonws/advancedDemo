@@ -1,9 +1,16 @@
 package com.advanced.demo.emulator;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.BatteryManager;
 import android.os.Build;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +22,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -39,14 +47,20 @@ public class EmulatorTestActivity extends BaseActivity {
         sEmulatorTestMap.put("google_sdk", "google_sdk".equals(Build.PRODUCT));
     }
 
+    private Button mBtnReset;
     private Button mBtnEmulatorTest;
     private TextView mEmulatorTestResult;
+    private Button mBtnSensorManager;
+    private TextView mSensorResult;
 
     @Override
     protected void initView() {
         super.initView();
         mBtnEmulatorTest = (Button) findViewById(R.id.btn_emulator_test);
         mEmulatorTestResult = (TextView) findViewById(R.id.emulator_test_result);
+        mBtnSensorManager = (Button) findViewById(R.id.btn_sensor_manager);
+        mSensorResult = (TextView) findViewById(R.id.sensor_manager_result);
+        mBtnReset = (Button) findViewById(R.id.btn_reset);
     }
 
     @Override
@@ -66,6 +80,25 @@ public class EmulatorTestActivity extends BaseActivity {
                 emulatorResult.append("CPU type: ").append(getCPUType()).append("\n");
                 emulatorResult.append("Battery Info: ").append(getBattery());
                 mEmulatorTestResult.setText(emulatorResult.toString());
+            }
+        });
+        mBtnSensorManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sensorResult = getSensorManager();
+                //noinspection StringBufferReplaceableByString
+                StringBuilder result = new StringBuilder(sensorResult);
+                result.append(getGyroSensor());
+                result.append(getIMEI());
+                result.append(getBluetoothAddress());
+                mSensorResult.setText(result.toString());
+            }
+        });
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSensorResult.setText(null);
+                mEmulatorTestResult.setText(null);
             }
         });
     }
@@ -103,11 +136,12 @@ public class EmulatorTestActivity extends BaseActivity {
         return cpuType;
     }
 
-    protected String getSystemProperty(String name) {
+    protected String getSystemProperty(@SuppressWarnings("SameParameterValue") String name) {
         String ret = UNKNOWN;
         try {
-            Class cl = Class.forName("android.os.SystemProperties");
+            @SuppressLint("PrivateApi") Class cl = Class.forName("android.os.SystemProperties");
             Object invoker = cl.newInstance();
+            //noinspection unchecked
             Method m = cl.getMethod("get", String.class, String.class);
             Object result = m.invoke(invoker, name, UNKNOWN);
             ret = (String) result;
@@ -121,11 +155,13 @@ public class EmulatorTestActivity extends BaseActivity {
         Intent batteryStatus = registerReceiver(null, ifilter);
 
         // Are we charging / charged?
+        //noinspection ConstantConditions
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
                 status == BatteryManager.BATTERY_STATUS_FULL;
 
         int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        //noinspection unused
         int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
 
         //float batteryPct = level / (float)scale;
@@ -135,6 +171,60 @@ public class EmulatorTestActivity extends BaseActivity {
         sbBattery.append("isInCharge: ").append(isCharging).append("\n");
         sbBattery.append("remainBattery: ").append(level).append("\n");
         return sbBattery.toString();
+    }
+
+    private String getSensorManager() {
+        StringBuilder sensorResult = new StringBuilder();
+        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        if (sensorManager == null) {
+            sensorResult.append("Sensor Manager Device is Null").append("\n");
+        } else {
+            List<Sensor> sensorList = sensorManager.getSensorList(Sensor.TYPE_ALL);
+            if (sensorList == null || sensorList.size() == 0) {
+                sensorResult.append("Sensor List is null").append("\n");
+            } else {
+                sensorResult.append("Sensor Item List: ").append("\n");
+                for (Sensor sensor : sensorList) {
+                    sensorResult.append(sensor.getName()).append("\n");
+                }
+            }
+        }
+        return sensorResult.toString();
+    }
+
+    private String getGyroSensor() {
+        StringBuilder gyroSensorResult = new StringBuilder();
+        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        if (sensorManager != null) {
+            Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+            if (sensor != null) {
+                gyroSensorResult.append("gyro Sensor: ").append(sensor.getName()).append("\n");
+            } else {
+                gyroSensorResult.append("gyro sensor is null").append("\n");
+            }
+        } else {
+            gyroSensorResult.append("Sensor Manager device is NULL").append("\n");
+        }
+        return gyroSensorResult.toString();
+    }
+
+    private String getIMEI() {
+        StringBuilder imeiResult = new StringBuilder();
+        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        @SuppressLint("MissingPermission") String imei = tm.getSubscriberId();
+        if (TextUtils.isEmpty(imei)) {
+            imeiResult.append("imei is Empty").append("\n");
+        } else {
+            imeiResult.append("Phone IMEI: ").append(imei).append("\n");
+        }
+        return imeiResult.toString();
+    }
+
+    private String getBluetoothAddress() {
+        //noinspection StringBufferReplaceableByString
+        StringBuilder bluetooth = new StringBuilder();
+        bluetooth.append("bluetooth: ").append(Settings.Secure.getString(getContentResolver(), "bluetooth_address")).append("\n");
+        return bluetooth.toString();
     }
 
     @Override

@@ -4,25 +4,49 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
     <Button
-        android:id="@+id/btn_emulator_test"
+        android:id="@+id/btn_reset"
+        android:text="Reset"
+        android:layout_margin="12dp"
+        android:background="@drawable/shape_request_edit"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/base_view_height"
-        android:text="Emulator Test"/>
+        android:layout_height="@dimen/base_view_height"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_emulator_test"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/base_view_height"
+                android:layout_margin="12dp"
+                android:background="@drawable/shape_retrofit_request"
+                android:text="Emulator Test"/>
+
             <TextView
                 android:id="@+id/emulator_test_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"/>
+
+            <Button
+                android:id="@+id/btn_sensor_manager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/base_view_height"
+                android:layout_margin="12dp"
+                android:background="@drawable/shape_retrofit_request"
+                android:text="Sensor Manager"/>
+
+            <TextView
+                android:id="@+id/sensor_manager_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="12dp"
