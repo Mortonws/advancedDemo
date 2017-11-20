@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/base_view_height"
+            android:layout_margin="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/base_view_height"
+                android:layout_weight="1"
+                android:background="@drawable/shape_retrofit_request"
+                android:text="Start"/>
+
+            <Button
+                android:id="@+id/btn_stop"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/base_view_height"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_retrofit_request"
+                android:text="Stop"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/device_battery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textColor="@color/jumei_red"/>
+
+        <Button
+            android:id="@+id/btn_get_device_battery"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/base_view_height"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_battery"
+            android:text="Get Battery"/>
+
+        <TextView
+            android:id="@+id/device_battery_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textColor="@color/jumei_red"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

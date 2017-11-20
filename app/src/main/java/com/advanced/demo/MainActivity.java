@@ -12,12 +12,14 @@ import com.advanced.demo.camera.TakePicByCameraActivity;
 import com.advanced.demo.cameraDetect.CameraDetectActivity;
 import com.advanced.demo.cameraPreview.CameraPreviewActivity;
 import com.advanced.demo.contacts.ReadContactActivity;
+import com.advanced.demo.devicePropteryCollect.BatteryCollectActivity;
 import com.advanced.demo.edittextUI.EditTextUIActivity;
 import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.emulator.EmulatorTestActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
+import com.advanced.demo.qrScan.QRScanActivity;
 import com.advanced.demo.retrofit.RetrofitRequestActivity;
 import com.advanced.demo.rotationSensor.RotationSensorActivity;
 import com.advanced.demo.singleTask.ActivityD;
@@ -43,6 +45,8 @@ public class MainActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(QRScanActivity.class, "QR SCAN");
+        mAdapter.addData(BatteryCollectActivity.class, "Battery Collect");
         mAdapter.addData(EmulatorTestActivity.class, "Emulator Test");
         mAdapter.addData(RetrofitRequestActivity.class, "Retrofit Request");
         mAdapter.addData(EmojiActivity.class, "Emoji");

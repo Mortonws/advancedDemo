@@ -1,11 +1,14 @@
 package com.advanced.demo.emulator;
 
 import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.provider.Settings;
@@ -21,6 +24,8 @@ import com.advanced.demo.R;
 import java.io.File;
 import java.io.FileFilter;
 import java.lang.reflect.Method;
+import java.net.NetworkInterface;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +84,7 @@ public class EmulatorTestActivity extends BaseActivity {
                 emulatorResult.append("CPU Core Num: ").append(getCPUNumCores()).append("\n");
                 emulatorResult.append("CPU type: ").append(getCPUType()).append("\n");
                 emulatorResult.append("Battery Info: ").append(getBattery());
+                emulatorResult.append("Wifi Mac: ").append(getWifiMac()).append("\n");
                 mEmulatorTestResult.setText(emulatorResult.toString());
             }
         });
@@ -101,6 +107,49 @@ public class EmulatorTestActivity extends BaseActivity {
                 mEmulatorTestResult.setText(null);
             }
         });
+    }
+
+    private String getWifiMac() {
+        String wifiMac = null;
+        NetworkInfo info = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+        if (info != null && info.isConnected()) {
+            switch (info.getType()) {
+                case ConnectivityManager.TYPE_MOBILE:
+                    wifiMac = "Connected by Mobile";
+                    break;
+                case ConnectivityManager.TYPE_WIFI:
+                    wifiMac = getMacAddress();
+                    break;
+            }
+        }
+        return wifiMac;
+    }
+
+    private static String getMacAddress() {
+        try {
+            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface nif : all) {
+                if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+
+                byte[] macBytes = nif.getHardwareAddress();
+                if (macBytes == null) {
+                    return "";
+                }
+
+                StringBuilder res1 = new StringBuilder();
+                for (byte b : macBytes) {
+                    res1.append(String.format("%02X:",b));
+                }
+
+                if (res1.length() > 0) {
+                    res1.deleteCharAt(res1.length() - 1);
+                }
+                return res1.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "02:00:00:00:00:00";
     }
 
     private boolean isRoot() {
@@ -223,7 +272,15 @@ public class EmulatorTestActivity extends BaseActivity {
     private String getBluetoothAddress() {
         //noinspection StringBufferReplaceableByString
         StringBuilder bluetooth = new StringBuilder();
-        bluetooth.append("bluetooth: ").append(Settings.Secure.getString(getContentResolver(), "bluetooth_address")).append("\n");
+        bluetooth.append("bluetooth: ");
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (bluetoothAdapter == null) {
+            bluetooth.append("is Null");
+        } else {
+            bluetooth.append(Settings.Secure.getString(getContentResolver(), "bluetooth_address"));
+            bluetooth.append("; getByAdapter: ").append(bluetoothAdapter.getAddress());
+        }
+        bluetooth.append("\n");
         return bluetooth.toString();
     }
 

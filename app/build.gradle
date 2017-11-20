@@ -30,6 +30,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     compile project(':baselib')
+    compile project(':zxinglib')
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.alibaba:fastjson:1.2.36'
 
