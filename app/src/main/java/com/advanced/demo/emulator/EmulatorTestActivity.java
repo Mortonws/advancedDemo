@@ -97,6 +97,7 @@ public class EmulatorTestActivity extends BaseActivity {
                 result.append(getGyroSensor());
                 result.append(getIMEI());
                 result.append(getBluetoothAddress());
+                result.append("isEmulator: ").append(isEmulator(mContext)).append("\n");
                 mSensorResult.setText(result.toString());
             }
         });
@@ -257,15 +258,35 @@ public class EmulatorTestActivity extends BaseActivity {
         return gyroSensorResult.toString();
     }
 
+    @SuppressLint("MissingPermission")
     private String getIMEI() {
         StringBuilder imeiResult = new StringBuilder();
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         @SuppressLint("MissingPermission") String imei = tm.getSubscriberId();
+        @SuppressLint("MissingPermission") String deviceId = tm.getDeviceId();
         if (TextUtils.isEmpty(imei)) {
             imeiResult.append("imei is Empty").append("\n");
         } else {
             imeiResult.append("Phone IMEI: ").append(imei).append("\n");
         }
+        if (TextUtils.isEmpty(deviceId)) {
+            imeiResult.append("deviceId is Empty").append("\n");
+        } else {
+            imeiResult.append("Phone deviceId: ").append(deviceId).append("\n");
+        }
+        String imeiReflect;
+        Class<?> telephoneManagerClazz = TelephonyManager.class;
+        try {
+            Method method =  telephoneManagerClazz.getMethod("getImei");
+            imeiReflect = (String) method.invoke(tm);
+        } catch (Exception e) {
+            e.printStackTrace();
+            imeiReflect = "EXCEPTION";
+        }
+        imeiResult.append("Relect IMEI: ").append(imeiReflect).append("\n");
+        CTelephoneInfo.getInstance(mContext).setCTelephoneInfo();
+        imeiResult.append("IMEI1: ").append(CTelephoneInfo.getInstance(mContext).getImeiSIM1()).append("\n");
+        imeiResult.append("IMEI2: ").append(CTelephoneInfo.getInstance(mContext).getImeiSIM2()).append("\n");
         return imeiResult.toString();
     }
 
@@ -282,6 +303,39 @@ public class EmulatorTestActivity extends BaseActivity {
         }
         bluetooth.append("\n");
         return bluetooth.toString();
+    }
+
+    private boolean isEmulator(Context context) {
+        return isEmulatorBySensor(context)
+                || Build.FINGERPRINT.toLowerCase().contains("vbox")
+                || Build.FINGERPRINT.toLowerCase().contains("test-keys")
+                || Build.MODEL.contains("google_sdk")
+                || Build.MODEL.contains("Emulator")
+                || Build.MODEL.contains("Android SDK built for x86")
+                || "google_sdk".equals(Build.PRODUCT);
+    }
+
+    private boolean isEmulatorBySensor(Context context) {
+        if (Build.MANUFACTURER.toLowerCase().contains("genymotion")) {
+            return true;
+        } else {
+            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+            boolean hasGyroHardware = true;
+            boolean hasBluetoothHardware = true;
+            if (bluetoothAdapter == null) {
+                hasBluetoothHardware = false;
+            }
+            if (sensorManager == null) {
+                hasBluetoothHardware = false;
+            } else {
+                Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+                if (sensor == null) {
+                    hasGyroHardware = false;
+                }
+            }
+            return !hasBluetoothHardware && !hasGyroHardware;
+        }
     }
 
     @Override

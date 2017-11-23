@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:text="Reset"
+        android:id="@+id/btn_reset"
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_retrofit_request"
+        android:layout_height="@dimen/base_view_height"/>
+
+    <Button
+        android:id="@+id/btn_get_gyro"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_view_height"
+        android:text="Get Gyro"/>
+
+    <TextView
+        android:id="@+id/gyro_result"
+        android:padding="12dp"
+        android:textSize="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

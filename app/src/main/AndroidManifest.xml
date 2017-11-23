@@ -86,6 +86,9 @@
 
         <activity android:name=".qrScan.QRScanActivity"
             android:screenOrientation="nosensor"/>
+
+        <activity android:name=".gyro.GyroActivity"
+                  android:screenOrientation="nosensor" />
     </application>
 
 </manifest>
