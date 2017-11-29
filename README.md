@@ -22,4 +22,4 @@
     - [深入剖析ThreadLocal](http://www.importnew.com/17849.html)
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
 
-[Activity Markdown Describe](/activity.md)
+[Activity Markdown Describe](/studyNote/android/activity.md)
