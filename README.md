@@ -21,3 +21,5 @@
 - [ThreadLocal 的学习](https://blog.piasy.com/2017/01/13/Android-Basics-ThreadLocal-HashMap/)
     - [深入剖析ThreadLocal](http://www.importnew.com/17849.html)
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
+
+[Activity Markdown Describe](/activity.md)
