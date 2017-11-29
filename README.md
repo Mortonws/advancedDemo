@@ -22,6 +22,5 @@
     - [深入剖析ThreadLocal](http://www.importnew.com/17849.html)
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
 
-```
+---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
-```
