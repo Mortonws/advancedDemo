@@ -12,10 +12,21 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
+        debug {
+            buildConfigField "String", "debugConfigKey", "\"This value come from gradle config define\""
+            buildConfigField("int", "authorAge", "27")
+            buildConfigField("boolean", "canSendMsg", "false")
+            buildConfigField("float", "todayTemp", "15.5f")
+            buildConfigField("double", "towerHight", "25.66")
+//            resValue("string", "advanced_app_name", "\"Debug Advanced\"")
+        }
         release {
-            minifyEnabled false
+            shrinkResources = true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            resValue("string", "advanced_app_name", "\"Advanced\"")
         }
     }
 }
