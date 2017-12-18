@@ -21,6 +21,8 @@
 - [ThreadLocal 的学习](https://blog.piasy.com/2017/01/13/Android-Basics-ThreadLocal-HashMap/)
     - [深入剖析ThreadLocal](http://www.importnew.com/17849.html)
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
+- [Android 缓存机制](/studyNote/android/AndroidCachingStrategy.md)
 
 ---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
+

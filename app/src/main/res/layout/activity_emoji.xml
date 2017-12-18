@@ -67,4 +67,14 @@
         android:layout_margin="5dp"
         android:background="@drawable/shape_request_edit"
         android:minHeight="@dimen/base_view_height"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@color/color_c3c3c3"
+        android:minHeight="60dp"
+        android:minWidth="60dp"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:adjustViewBounds="true"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
