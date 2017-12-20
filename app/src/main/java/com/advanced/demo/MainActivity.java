@@ -17,6 +17,7 @@ import com.advanced.demo.devicePropteryCollect.BatteryCollectActivity;
 import com.advanced.demo.edittextUI.EditTextUIActivity;
 import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.emulator.EmulatorTestActivity;
+import com.advanced.demo.fragment.HelloWorldFragmentActivity;
 import com.advanced.demo.gyro.GyroActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(HelloWorldFragmentActivity.class, "Hello Fragment");
         mAdapter.addData(GyroActivity.class, "Gyro Result");
         mAdapter.addData(QRScanActivity.class, "QR SCAN");
         mAdapter.addData(BatteryCollectActivity.class, "Battery Collect");

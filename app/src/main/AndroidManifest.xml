@@ -89,6 +89,8 @@
 
         <activity android:name=".gyro.GyroActivity"
                   android:screenOrientation="nosensor" />
+        <activity android:name=".fragment.HelloWorldFragmentActivity"
+            android:screenOrientation="nosensor"/>
     </application>
 
 </manifest>

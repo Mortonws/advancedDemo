@@ -5,7 +5,7 @@
 ```
 - [handler、looper、Message 的三者关系](http://blog.csdn.net/lmj623565791/article/details/38377229)
 - [asyncTask 的原理，以及它的缺点](http://weishu.me/2016/01/18/dive-into-asynctask/)
-- [Activity的启动过程](http://blog.csdn.net/qian520ao/article/details/78156214#performlaunchactivity)
+- [Activity的启动过程](http://blog.csdn.net/qian520ao/article/details/78156214)
 - [View的绘制过程](http://www.jianshu.com/p/5a71014e7b1b)
     - [郭霖版View绘制流程解析](http://blog.csdn.net/guolin_blog/article/details/16330267)
     - [郭霖版自定义View](http://blog.csdn.net/guolin_blog/article/details/17357967)
