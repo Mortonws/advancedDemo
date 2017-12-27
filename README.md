@@ -18,6 +18,7 @@
 - [单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
 - [APP资源瘦身](https://developer.android.com/studio/build/shrink-code.html)
 - [binder机制](http://blog.csdn.net/qian520ao/article/details/78089877)
+    - [Binder学习指南](http://weishu.me/2016/01/12/binder-index-for-newer/)
 - [线程池的原理](http://www.jianshu.com/p/3da543063b8c)
 - [gradle的介绍与使用](http://www.jianshu.com/p/9df3c3b6067a)
 - [ThreadLocal 的学习](https://blog.piasy.com/2017/01/13/Android-Basics-ThreadLocal-HashMap/)
