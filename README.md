@@ -25,6 +25,7 @@
     - [深入剖析ThreadLocal](http://www.importnew.com/17849.html)
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
 - [Android 缓存机制](/studyNote/android/AndroidCachingStrategy.md)
+- [Activity LaunchMode](/studyNote/android/launchMode.md)
 
 ---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
