@@ -10,9 +10,12 @@ import com.advanced.demo.R;
 
 /**
  * @author by sangw on 2017/8/15.
+ *         <p>
+ *         singleInstance
  */
 
 public class ActivityD extends BaseActivity {
+    private final static String TAG = "launchMode.D";
     private TextView mStartNextActivity;
 
     @Override
@@ -20,7 +23,7 @@ public class ActivityD extends BaseActivity {
         super.initView();
         mStartNextActivity = (TextView) findViewById(R.id.btn_start_next);
         mStartNextActivity.setText("Start Page A");
-        ((TextView)findViewById(R.id.page_name)).setText("Page D");
+        ((TextView) findViewById(R.id.page_name)).setText("Page D");
     }
 
     @Override
@@ -40,14 +43,20 @@ public class ActivityD extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume; ThreadID: " + Thread.currentThread().getName());
+    }
+
+    @Override
     public void finish() {
         super.finish();
-        Log.i("SingleTask", "ActivityD finish");
+        Log.i(TAG, "ActivityD finish");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("SingleTask", "ActivityD Destroy");
+        Log.i(TAG, "ActivityD Destroy");
     }
 }

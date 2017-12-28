@@ -10,9 +10,12 @@ import com.advanced.demo.R;
 
 /**
  * @author by sangw on 2017/8/15.
+ *
+ * standard
  */
 
 public class ActivityC extends BaseActivity {
+    private final static String TAG = "launchMode.C";
     private TextView mStartNextActivity;
     private TextView mPageName;
 
@@ -48,14 +51,20 @@ public class ActivityC extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume; ThreadID: " + Thread.currentThread().getName());
+    }
+
+    @Override
     public void finish() {
         super.finish();
-        Log.i("SingleTask", "ActivityC finish");
+        Log.i(TAG, "ActivityC finish");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("SingleTask", "ActivityC Destroy");
+        Log.i(TAG, "ActivityC Destroy");
     }
 }

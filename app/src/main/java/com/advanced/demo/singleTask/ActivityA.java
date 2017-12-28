@@ -10,9 +10,12 @@ import com.advanced.demo.R;
 
 /**
  * @author by sangw on 2017/8/15.
+ *
+ * SingleTask
  */
 
 public class ActivityA extends BaseActivity {
+    private final static String TAG = "launchMode.A";
     private TextView mStartNextActivity;
 
     @Override
@@ -40,14 +43,20 @@ public class ActivityA extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume; ThreadID: " + Thread.currentThread().getName());
+    }
+
+    @Override
     public void finish() {
         super.finish();
-        Log.i("SingleTask", "ActivityA finish");
+        Log.i(TAG, "ActivityA finish");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("SingleTask", "ActivityA Destroy");
+        Log.i(TAG, "ActivityA Destroy");
     }
 }
