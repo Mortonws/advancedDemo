@@ -2,8 +2,8 @@
 
 buildscript {
     repositories {
-//        maven { url 'http://app.int.jumei.com:8081/nexus/content/repositories/release/' }
         jcenter()
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -15,8 +15,8 @@ buildscript {
 
 allprojects {
     repositories {
-//        maven { url 'http://app.int.jumei.com:8081/nexus/content/repositories/release/' }
         jcenter()
+        google()
     }
 }
 
