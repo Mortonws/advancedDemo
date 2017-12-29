@@ -33,6 +33,13 @@ Java基础知识解析
 
 - [哈希表的原理](http://blog.csdn.net/duan19920101/article/details/51579136)
 
+
+```
+知识点归纳
+```
+
+- [读书笔记](/studyNote/android/study_note.md)
+
 ---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
 
