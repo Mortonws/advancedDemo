@@ -26,7 +26,7 @@
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
 - [Android 缓存机制](/studyNote/android/AndroidCachingStrategy.md)
 - [Activity LaunchMode](/studyNote/android/launchMode.md)
-- [MultiDex原理](https://www.jianshu.com/p/79a14d340cb0)
+- [MultiDex原理](https://zhuanlan.zhihu.com/p/24305296)
     - [原理总结](/studyNote/android/multiDex.md)
 
 ```
