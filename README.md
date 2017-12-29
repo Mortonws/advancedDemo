@@ -38,7 +38,7 @@ Java基础知识解析
 知识点归纳
 ```
 
-- [读书笔记](/studyNote/android/study_note.md)
+- [读书笔记](/studyNote/android/study_note.txt)
 
 ---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
