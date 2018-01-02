@@ -28,6 +28,7 @@
 - [Activity LaunchMode](/studyNote/android/launchMode.md)
 - [MultiDex原理](https://zhuanlan.zhihu.com/p/24305296)
     - [原理总结](/studyNote/android/multiDex.md)
+    - [美团Android DEX自动拆包及动态加载简介](https://tech.meituan.com/mt-android-auto-split-dex.html)
 
 ```
 Java基础知识解析
