@@ -27,9 +27,11 @@
 - [Android 缓存机制](/studyNote/android/AndroidCachingStrategy.md)
 - [Activity LaunchMode](/studyNote/android/launchMode.md)
 - [ANR 发生的场景](/studyNote/android/ANR.md)
+    - [ANR 分析学习总结](https://www.jianshu.com/p/f14e89641109)
 - [MultiDex原理](https://zhuanlan.zhihu.com/p/24305296)
     - [原理总结](/studyNote/android/multiDex.md)
     - [美团Android DEX自动拆包及动态加载简介](https://tech.meituan.com/mt-android-auto-split-dex.html)
+- [子线程更新UI](/studyNote/android/updateMainUI.md)
 
 ```
 Java基础知识解析
