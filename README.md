@@ -26,6 +26,7 @@
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
 - [Android 缓存机制](/studyNote/android/AndroidCachingStrategy.md)
 - [Activity LaunchMode](/studyNote/android/launchMode.md)
+- [ANR 发生的场景](/studyNote/android/ANR.md)
 
 ```
 Java基础知识解析
