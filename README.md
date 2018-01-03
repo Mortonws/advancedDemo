@@ -38,6 +38,7 @@ Java基础知识解析
 ```
 
 - [哈希表的原理](http://blog.csdn.net/duan19920101/article/details/51579136)
+- [策略模式](/studyNote/designPatterns/strategyPatterns.md)
 
 
 ```
