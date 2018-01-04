@@ -23,3 +23,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task printName() {
+    println '----'
+    println 'WuSang'
+    println '----'
+}
