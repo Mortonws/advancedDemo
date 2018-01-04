@@ -29,3 +29,11 @@ task printName() {
     println 'WuSang'
     println '----'
 }
+
+task sendMsg() {
+    doLast {
+        println '~~~~~~~'
+        println 'send TXT msg'
+        println '~~~~~~~'
+    }
+}
