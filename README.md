@@ -15,6 +15,7 @@
     - ["凶残的程序员"版的事件分发机制](http://blog.csdn.net/qian520ao/article/details/77429593)
 - [java内存中堆栈的介绍](http://www.jianshu.com/p/bf159a9c391a)
 - [内存溢出与泄漏](http://www.jianshu.com/p/bf159a9c391a)
+    - [内存泄露的八种可能](https://www.jianshu.com/p/ac00e370f83d?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 - [单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
 - [APP资源瘦身](https://developer.android.com/studio/build/shrink-code.html)
 - [binder机制](http://blog.csdn.net/qian520ao/article/details/78089877)
@@ -36,8 +37,9 @@
 ```
 Java基础知识解析
 ```
-
+- [八大排序算法](http://blog.csdn.net/hguisu/article/details/7776068/)
 - [哈希表的原理](http://blog.csdn.net/duan19920101/article/details/51579136)
+- [hashCode](/studyNote/android/hashTable.md)
 - [策略模式](/studyNote/designPatterns/strategyPatterns.md)
 
 
