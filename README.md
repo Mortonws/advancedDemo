@@ -16,6 +16,7 @@
 - [java内存中堆栈的介绍](http://www.jianshu.com/p/bf159a9c391a)
 - [内存溢出与泄漏](http://www.jianshu.com/p/bf159a9c391a)
     - [内存泄露的八种可能](https://www.jianshu.com/p/ac00e370f83d?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+    - [内存检测工具](https://github.com/square/leakcanary)
 - [单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
 - [APP资源瘦身](https://developer.android.com/studio/build/shrink-code.html)
 - [binder机制](http://blog.csdn.net/qian520ao/article/details/78089877)
