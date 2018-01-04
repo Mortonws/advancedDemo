@@ -19,6 +19,8 @@
     - [内存检测工具](https://github.com/square/leakcanary)
 - [单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
 - [APP资源瘦身](https://developer.android.com/studio/build/shrink-code.html)
+    - [混淆Keep Option](https://www.guardsquare.com/en/proguard/manual/usage#keepoptions)
+- [65535](https://developer.android.com/studio/build/multidex.html)
 - [binder机制](http://blog.csdn.net/qian520ao/article/details/78089877)
     - [Binder学习指南](http://weishu.me/2016/01/12/binder-index-for-newer/)
 - [线程池的原理](http://www.jianshu.com/p/3da543063b8c)
