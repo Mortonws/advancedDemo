@@ -53,6 +53,7 @@ Java基础知识解析
 ```
 
 - [读书笔记](/studyNote/android/study_note.txt)
+- [每日温故知识点](/studyNote/everyDayStudyList.md)
 
 ---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
