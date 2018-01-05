@@ -20,6 +20,7 @@
 - [单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
 - [APP资源瘦身](https://developer.android.com/studio/build/shrink-code.html)
     - [混淆Keep Option](https://www.guardsquare.com/en/proguard/manual/usage#keepoptions)
+    - [App包瘦身优化实践](https://tech.meituan.com/android-shrink-overall-solution.html)
 - [65535](https://developer.android.com/studio/build/multidex.html)
 - [binder机制](http://blog.csdn.net/qian520ao/article/details/78089877)
     - [Binder学习指南](http://weishu.me/2016/01/12/binder-index-for-newer/)
@@ -42,6 +43,7 @@ Java基础知识解析
 ```
 - [八大排序算法](http://blog.csdn.net/hguisu/article/details/7776068/)
 - [哈希表的原理](http://blog.csdn.net/duan19920101/article/details/51579136)
+- [HashMap实现原理](https://mp.weixin.qq.com/s?__biz=MzI5ODI5NDkxMw==&mid=2247486298&idx=1&sn=a30790acd0543ce4569a52c3e3a5fe80&chksm=eca940b4dbdec9a2b0e65415c98d5dbb56c9c1587362c3f31007be964bfade21cb93f0503db5&mpshare=1&scene=1&srcid=0104MQGjUmTi9iB2TzfHGD3B&key=8c29d006290c3bc3ccc4c6de4d9ef0c10249c9e7b3cd02960c843d14ecf8c382bc8c2b2c419f1813eb54f0be6481eab589c2f42cb24fef9c8b9011bc2702b454e24c0d7bc4afbf9768ade57a7e3b2310&ascene=0&uin=MTk2MjYzOTIw&devicetype=iMac+Macmini7%2C1+OSX+OSX+10.12.1+build(16B2555)&version=12020810&nettype=WIFI&lang=zh_CN&fontScale=100&pass_ticket=BoAZZpluZUiHZSsa2k8xL6c%2FFy9ZNp3t%2FZ7PqmQMrjM%3D)
 - [hashCode](/studyNote/android/hashTable.md)
 - [策略模式](/studyNote/designPatterns/strategyPatterns.md)
 
