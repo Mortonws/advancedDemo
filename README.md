@@ -3,6 +3,7 @@
 ```
 以下为收集的Android知识点解析
 ```
+- [Android面试题整理](http://www.androidchina.net/7953.html)
 - [handler、looper、Message 的三者关系](http://blog.csdn.net/lmj623565791/article/details/38377229)
 - [asyncTask 的原理，以及它的缺点](http://weishu.me/2016/01/18/dive-into-asynctask/)
     - [AsyncTask 详解](http://blog.csdn.net/guolin_blog/article/details/11711405)
