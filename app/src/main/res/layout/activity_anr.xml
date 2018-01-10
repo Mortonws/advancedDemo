@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_start_service"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_view_height"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_red_normal"
+        android:text="Start Service"/>
+
+    <EditText
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_retrofit_request"
+        android:inputType="number"
+        android:minHeight="@dimen/base_view_height"
+        android:padding="5dp"/>
+
+    <EditText
+        android:id="@+id/run_seconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_red_normal"
+        android:inputType="number"
+        android:minHeight="@dimen/base_view_height"
+        android:padding="5dp"/>
+
+    <Button
+        android:id="@+id/btn_send_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_red_normal"
+        android:text="Send Broadcast"/>
+</LinearLayout>
