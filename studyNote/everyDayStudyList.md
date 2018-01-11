@@ -28,3 +28,14 @@
 - 面向对象的三大特征与五大原则，尽量描述这些特征和原则的说明
     - [面向对象特征与原则](android/JavaObjectOriented.md)
 - TCP UDP 的介绍与区别
+
+---
+~~~
+关键字                      描述
+keep                        保留类和类中的成员，防止被混淆或移除
+keepnames                   保留类和类中的成员，防止被混淆，成员没有被引用会被移除
+keepclassmembers            只保留类中的成员，防止被混淆或移除
+keepclassmembernames        只保留类中的成员，防止被混淆，成员没有引用会被移除
+keepclasseswithmembers      保留类和类中的成员，防止被混淆或移除，保留指明的成员
+keepclasseswithmembernames  保留类和类中的成员，防止被混淆，保留指明的成员，成员没有引用会被移除
+~~~
