@@ -38,7 +38,7 @@
     - [原理总结](/studyNote/android/multiDex.md)
     - [美团Android DEX自动拆包及动态加载简介](https://tech.meituan.com/mt-android-auto-split-dex.html)
 - [子线程更新UI](/studyNote/android/updateMainUI.md)
-- [Android Parcelable和Serializable的区别](studyNode/android/differForParceAndSerialize.md)
+- [Android Parcelable和Serializable的区别](studyNote/android/differForParceAndSerialize.md)
 
 ```
 Java基础知识解析
