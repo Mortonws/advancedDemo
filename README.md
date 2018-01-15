@@ -1,6 +1,14 @@
 # advancedDemo
 
 ```
+技术博客(主要为Android)
+```
+- [刘望舒的博客](http://liuwangshu.cn/)
+- [凶残的程序员](http://blog.csdn.net/qian520ao)
+- [废墟的树](http://blog.csdn.net/feiduclear_up)
+- [郭霖](http://blog.csdn.net/guolin_blog)
+
+```
 以下为收集的Android知识点解析
 ```
 - [Android面试题整理](http://www.androidchina.net/7953.html)
