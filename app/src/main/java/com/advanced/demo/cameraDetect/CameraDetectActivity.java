@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.advanced.baselib.base.BaseActivity;
-import com.advanced.baselib.base.DensityUtils;
 import com.advanced.demo.R;
+import com.sangw.library.DensityUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
