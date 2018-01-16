@@ -51,7 +51,7 @@
 ```
 Java基础知识解析
 ```
-- [Java](/studyNode/java/Java.html)
+- [Java](/studyNote/java/Java.html)
 - [八大排序算法](http://blog.csdn.net/hguisu/article/details/7776068/)
     - [Java版八大排序算法](http://blog.csdn.net/happy_wu/article/details/51841244)
 - [红黑树深入剖析及Java实现](https://tech.meituan.com/redblack-tree.html)
