@@ -11,6 +11,9 @@
 - View的绘制过程
 - window，View，Activity之间的联系
 - handle的实现原理
+- annotation注解
+- glide的实现原理
+- 混淆
 
 
 ### 美团面试知识点总结
