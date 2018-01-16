@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.advanced.baselib.base.BaseActivity;
+import com.advanced.demo.annotationTest.TestAnnotationActivity_;
 import com.advanced.demo.anr.ANRActivity;
 import com.advanced.demo.camera.TakePicByCameraActivity;
 import com.advanced.demo.cameraDetect.CameraDetectActivity;
@@ -49,6 +50,7 @@ public class MainActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(TestAnnotationActivity_.class, "Annotation");
         mAdapter.addData(ANRActivity.class, "ANR");
         mAdapter.addData(HelloWorldFragmentActivity.class, "Hello Fragment");
         mAdapter.addData(GyroActivity.class, "Gyro Result");

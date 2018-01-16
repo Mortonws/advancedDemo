@@ -36,6 +36,8 @@ repositories {
     maven { url 'https://maven.google.com' }
 }
 
+def AAVersion = "4.3.1" // change this to your desired version, for example the latest stable: 4.3.1
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
@@ -51,4 +53,7 @@ dependencies {
     //    compile 'com.jm.android.collector.property:jmcollector:1.0.13'
     implementation 'com.android.support:recyclerview-v7:27.0.2'
     implementation 'com.android.support:appcompat-v7:27.0.2'
+
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
 }

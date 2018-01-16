@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_red_normal"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="Hello Annotation"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/input_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_red_normal"
+        android:padding="12dp"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_change_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_view_height"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_red_normal"
+        android:text="Change Content"
+        android:textColor="@color/jumei_red"
+        android:textSize="20sp"/>
+
+</LinearLayout>

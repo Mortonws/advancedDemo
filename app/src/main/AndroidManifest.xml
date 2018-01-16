@@ -118,6 +118,9 @@
         <activity
             android:name=".anr.ANRActivity"
             android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".annotationTest.TestAnnotationActivity_"
+            android:screenOrientation="nosensor"/>
 
         <service android:name=".anr.ANRService"/>
     </application>
