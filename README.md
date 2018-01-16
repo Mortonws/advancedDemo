@@ -35,6 +35,7 @@
     - [Binder学习指南](http://weishu.me/2016/01/12/binder-index-for-newer/)
 - [线程池的原理](http://www.jianshu.com/p/3da543063b8c)
 - [gradle的介绍与使用](http://www.jianshu.com/p/9df3c3b6067a)
+    -[Android Gradle 语法简介](http://blog.csdn.net/wangbaochu/article/details/51177672)
 - [ThreadLocal 的学习](https://blog.piasy.com/2017/01/13/Android-Basics-ThreadLocal-HashMap/)
     - [深入剖析ThreadLocal](http://www.importnew.com/17849.html)
 - [Activity、View、Window的理解](http://www.jianshu.com/p/5297e307a688)
