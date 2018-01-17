@@ -30,7 +30,10 @@ import com.advanced.demo.rotationSensor.RotationSensorActivity;
 import com.advanced.demo.singleTask.ActivityD;
 import com.advanced.demo.transctionView.CircleTransactionViewActivity;
 
+import java.util.Locale;
+
 public class MainActivity extends BaseActivity {
+    private final static String TAG = "MainActivity";
 
     private MainAdapter mAdapter;
 
@@ -76,14 +79,27 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        RecyclerView mainRecyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
+        RecyclerView mainRecyclerView = findViewById(R.id.main_recycler_view);
 
         mAdapter = new MainAdapter(mContext);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
         mainRecyclerView.setAdapter(mAdapter);
         mainRecyclerView.setLayoutManager(layoutManager);
         mainRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        Log.e("MainActivity", "isEmulator: " + isEmulator());
+        Log.e(TAG, "isEmulator: " + isEmulator());
+
+        float density = getResources().getDisplayMetrics().density;
+        int screenWidth_px = getResources().getDisplayMetrics().widthPixels;
+        int screenHeight_px = getResources().getDisplayMetrics().heightPixels;
+        int dpi = getResources().getDisplayMetrics().densityDpi;
+
+        int screenWidth_dp = (int) (screenWidth_px / density);
+        int screenHeight_dp = (int) (screenHeight_px / density);
+
+        String screenLog = String.format(Locale.getDefault(), "density: %s; widthPx: %s; heightPx: %s; widthDP: %s; heightDP: %s",
+                density, screenWidth_px, screenHeight_px, screenWidth_dp, screenHeight_dp);
+        Log.e(TAG, screenLog);
+        Log.e(TAG, "dpi: " + dpi);
     }
 
     @Override
