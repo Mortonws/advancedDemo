@@ -100,6 +100,11 @@ public class MainActivity extends BaseActivity {
                 density, screenWidth_px, screenHeight_px, screenWidth_dp, screenHeight_dp);
         Log.e(TAG, screenLog);
         Log.e(TAG, "dpi: " + dpi);
+        Log.e(TAG, "enum male: " + Person.Male);
+        Log.e(TAG, "enum female: " + Person.Female);
+        Log.e(TAG, "enum child: " + Person.Child);
+        Log.e(TAG, "enum oldPeople: " + Person.OldPeople);
+
     }
 
     @Override
@@ -111,5 +116,12 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.e(TAG, "onDestroy");
+    }
+
+    private enum Person {
+        Male,
+        Female,
+        Child,
+        OldPeople
     }
 }
