@@ -106,4 +106,10 @@ public class MainActivity extends BaseActivity {
     protected int setLayoutId() {
         return R.layout.activity_main;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy");
+    }
 }
