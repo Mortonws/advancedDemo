@@ -43,6 +43,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     compile project(':baselib')
     compile project(':zxinglib')
+    compile project(':pullRefreshLib')
     compile 'com.alibaba:fastjson:1.2.36'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'

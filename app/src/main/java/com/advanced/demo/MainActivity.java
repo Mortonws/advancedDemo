@@ -29,6 +29,7 @@ import com.advanced.demo.retrofit.RetrofitRequestActivity;
 import com.advanced.demo.rotationSensor.RotationSensorActivity;
 import com.advanced.demo.singleTask.ActivityD;
 import com.advanced.demo.transctionView.CircleTransactionViewActivity;
+import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import java.util.Locale;
 
@@ -104,6 +105,9 @@ public class MainActivity extends BaseActivity {
         Log.e(TAG, "enum female: " + Person.Female);
         Log.e(TAG, "enum child: " + Person.Child);
         Log.e(TAG, "enum oldPeople: " + Person.OldPeople);
+
+        TwinklingRefreshLayout refreshLayout = findViewById(R.id.refresh);
+        refreshLayout.setPureScrollModeOn();
 
     }
 
