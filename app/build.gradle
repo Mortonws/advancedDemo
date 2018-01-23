@@ -40,7 +40,7 @@ def AAVersion = "4.3.1" // change this to your desired version, for example the 
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta4'
     compile project(':baselib')
     compile project(':zxinglib')
     compile project(':pullRefreshLib')
