@@ -23,6 +23,7 @@ import com.advanced.demo.fragment.HelloWorldFragmentActivity;
 import com.advanced.demo.gyro.GyroActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
+import com.advanced.demo.notification.PendingNotificationActivity;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
 import com.advanced.demo.qrScan.QRScanActivity;
 import com.advanced.demo.retrofit.RetrofitRequestActivity;
@@ -54,6 +55,7 @@ public class MainActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(PendingNotificationActivity.class, "Pending Notification Msg");
         mAdapter.addData(TestAnnotationActivity_.class, "Annotation");
         mAdapter.addData(ANRActivity.class, "ANR");
         mAdapter.addData(HelloWorldFragmentActivity.class, "Hello Fragment");
