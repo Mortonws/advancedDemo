@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_send_pending_notification_msg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/base_view_height"
-        android:layout_centerVertical="true"
         android:background="@drawable/shape_default_button_bg"
         android:text="Send Pending Notification Msg" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_send_pending_receiver_msg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_view_height"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_default_button_bg"
+        android:text="Send Pending Receiver Msg" />
+
+</LinearLayout>

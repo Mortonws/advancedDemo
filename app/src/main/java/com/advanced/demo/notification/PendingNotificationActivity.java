@@ -1,10 +1,14 @@
 package com.advanced.demo.notification;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,11 +21,20 @@ import com.advanced.demo.R;
 
 public class PendingNotificationActivity extends BaseActivity {
     private Button mBtnSendPendingNotificationMsg;
+    private PendingNotificationReceiver mReceiver;
 
     @Override
     protected void initView() {
         super.initView();
         mBtnSendPendingNotificationMsg = findViewById(R.id.btn_send_pending_notification_msg);
+    }
+
+    @Override
+    protected void initPages() {
+        super.initPages();
+        mReceiver = new PendingNotificationReceiver();
+        IntentFilter filter = new IntentFilter(PendingNotificationReceiver.ACTION);
+        registerReceiver(mReceiver, filter);
     }
 
     @Override
@@ -31,6 +44,13 @@ public class PendingNotificationActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 sendPendingNotificationMsg();
+            }
+        });
+        findViewById(R.id.btn_send_pending_receiver_msg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(PendingNotificationReceiver.TAG, "receiver msg click");
+                sendPendingReceiverMsg();
             }
         });
     }
@@ -56,8 +76,25 @@ public class PendingNotificationActivity extends BaseActivity {
         }
     }
 
+    private void sendPendingReceiverMsg() {
+        Intent intent = new Intent(this, PendingNotificationReceiver.class);
+        intent.setAction(PendingNotificationReceiver.ACTION);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 500, pendingIntent);
+        }
+    }
+
     @Override
     protected int setLayoutId() {
         return R.layout.activity_pending_notification;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 }
