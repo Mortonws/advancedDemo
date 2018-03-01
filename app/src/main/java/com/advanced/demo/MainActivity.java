@@ -76,7 +76,9 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(CameraDetectActivity.class, "Camera Detect");
         mAdapter.addData(CameraPreviewActivity.class, "Activity Preview");
 
-        Toast.makeText(mContext, BuildConfig.debugConfigKey, Toast.LENGTH_SHORT).show();
+        if (BuildConfig.DEBUG) {
+            Toast.makeText(mContext, BuildConfig.debugConfigKey, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
