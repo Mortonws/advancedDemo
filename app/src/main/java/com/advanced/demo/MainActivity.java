@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.annotationTest.TestAnnotationActivity_;
@@ -76,9 +75,9 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(CameraDetectActivity.class, "Camera Detect");
         mAdapter.addData(CameraPreviewActivity.class, "Activity Preview");
 
-        if (BuildConfig.DEBUG) {
-            Toast.makeText(mContext, BuildConfig.debugConfigKey, Toast.LENGTH_SHORT).show();
-        }
+//        if (BuildConfig.DEBUG) {
+//            Toast.makeText(mContext, BuildConfig.debugConfigKey, Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override
