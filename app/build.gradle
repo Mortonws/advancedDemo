@@ -1,25 +1,42 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.3'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.advanced.demo"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debugConfig {
+            storeFile file("wusang.keystore")
+            storePassword "123456"
+            keyAlias "wusang"
+            keyPassword "123456"
+        }
+
+        releaseConfig {
+            storeFile file("wusang.keystore")
+            storePassword "123456"
+            keyAlias "wusang"
+            keyPassword "123456"
+        }
+    }
+
+
     buildTypes {
         debug {
-            buildConfigField "String", "debugConfigKey", "\"This value come from gradle config define\""
-            buildConfigField("int", "authorAge", "27")
-            buildConfigField("boolean", "canSendMsg", "false")
-            buildConfigField("float", "todayTemp", "15.5f")
-            buildConfigField("double", "towerHight", "25.66")
+//            buildConfigField "String", "debugConfigKey", "\"This value come from gradle config define\""
+//            buildConfigField("int", "authorAge", "27")
+//            buildConfigField("boolean", "canSendMsg", "false")
+//            buildConfigField("float", "todayTemp", "15.5f")
+//            buildConfigField("double", "towerHight", "25.66")
 //            resValue("string", "advanced_app_name", "\"Debug Advanced\"")
         }
         release {
@@ -47,15 +64,14 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.36'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-//    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile "${DEPS.glideDEP}"
     compile 'com.github.Mortonws:SangWLibrary:0.0.2'
     //    annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
     //    compile 'com.squareup.picasso:picasso:2.5.2'
     //    compile 'com.jm.android.collector.property:jmcollector:1.0.13'
-    implementation 'com.android.support:recyclerview-v7:27.0.2'
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-
+    implementation 'com.android.support:recyclerview-v7:26.0.2'
+    implementation 'com.android.support:appcompat-v7:26.0.2'
     annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
 }

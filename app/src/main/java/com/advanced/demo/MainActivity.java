@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.WindowManager;
 
 import com.advanced.baselib.base.BaseActivity;
+import com.advanced.demo.annotationTest.TestAnnotationActivity;
 import com.advanced.demo.anr.ANRActivity;
 import com.advanced.demo.camera.TakePicByCameraActivity;
 import com.advanced.demo.cameraDetect.CameraDetectActivity;
@@ -22,6 +23,7 @@ import com.advanced.demo.gyro.GyroActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.notification.PendingNotificationActivity;
+import com.advanced.demo.openSocial.OpenSocialActivity;
 import com.advanced.demo.propertyAnimator.PropertyAnimatorActivity;
 import com.advanced.demo.qrScan.QRScanActivity;
 import com.advanced.demo.retrofit.RetrofitRequestActivity;
@@ -53,6 +55,7 @@ public class MainActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mAdapter.addData(OpenSocialActivity.class, "Open Social");
         mAdapter.addData(PendingNotificationActivity.class, "Pending Notification Msg");
         mAdapter.addData(ANRActivity.class, "ANR");
         mAdapter.addData(HelloWorldFragmentActivity.class, "Hello Fragment");

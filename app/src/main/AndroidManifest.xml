@@ -123,6 +123,7 @@
             android:name=".notification.PendingNotificationActivity"
             android:screenOrientation="nosensor" />
         <activity android:name=".notification.DemoActivity" />
+        <activity android:name=".openSocial.OpenSocialActivity" />
 
         <service android:name=".anr.ANRService" />
     </application>
