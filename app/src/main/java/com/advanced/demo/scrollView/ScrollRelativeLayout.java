@@ -1,6 +1,7 @@
 package com.advanced.demo.scrollView;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,10 +16,16 @@ import java.util.Locale;
  */
 
 public class ScrollRelativeLayout extends RelativeLayout {
-    private final static String TAG = "ScrollRelativeLayout";
+    private final static String TAG = "Scroll.RelativeLayout";
     private Scroller mScroller;
 
-    private int mTotalVerticalScroll = 0;
+    @SuppressWarnings("FieldCanBeLocal")
+    private float mVerticalDown;
+    private float mVerticalLastMove;
+    @SuppressWarnings("FieldCanBeLocal")
+    private float mVerticalMove;
+
+    private RecyclerView mCanScrollRecyclerView;
 
     public ScrollRelativeLayout(Context context) {
         this(context, null);
@@ -29,12 +36,14 @@ public class ScrollRelativeLayout extends RelativeLayout {
         mScroller = new Scroller(context);
     }
 
-    private float mVerticalDown;
-    private float mVerticalLastMove;
-    private float mVerticalMove;
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.mCanScrollRecyclerView = recyclerView;
+
+    }
+
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
+    public boolean dispatchTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mVerticalDown = event.getRawY();
@@ -46,25 +55,30 @@ public class ScrollRelativeLayout extends RelativeLayout {
 //                mScroller.startScroll(0, mScroller.getStartY(), 0, scrollVerticalDistance);
 //                invalidate();
 
-                if (getChildCount() > 0) {
-                    int viewBottom = getChildAt(0).getBottom();
-                    int parentViewBottom = getBottom();
+                if (mCanScrollRecyclerView != null) {
+                    int[] recyclerViewLocationInWindow = new int[2];
+                    mCanScrollRecyclerView.getLocationInWindow(recyclerViewLocationInWindow);
+                    int recyclerViewTop = recyclerViewLocationInWindow[1];
+                    int viewBottom = recyclerViewTop + mCanScrollRecyclerView.getHeight();
+
+                    int[] parentViewLocationInWindow = new int[2];
+                    getLocationInWindow(parentViewLocationInWindow);
+                    int parentViewTop = parentViewLocationInWindow[1];
+                    int parentViewBottom = parentViewTop + getHeight();
+
                     if (scrollVerticalDistance > 0) {
-                        if (mTotalVerticalScroll - scrollVerticalDistance < 0) {
-                            scrollVerticalDistance = mTotalVerticalScroll;
+                        if (recyclerViewTop - scrollVerticalDistance < parentViewTop) {
+                            scrollVerticalDistance = recyclerViewTop - parentViewTop;
                         }
                     } else if (scrollVerticalDistance < 0) {
-                        if (mTotalVerticalScroll + viewBottom - scrollVerticalDistance > parentViewBottom) {
-                            scrollVerticalDistance = mTotalVerticalScroll + viewBottom - parentViewBottom;
+                        if (viewBottom - scrollVerticalDistance > parentViewBottom) {
+                            scrollVerticalDistance = viewBottom - parentViewBottom;
                         }
                     }
+                    scrollBy(0, scrollVerticalDistance);
                 }
-
-                mTotalVerticalScroll = mTotalVerticalScroll - scrollVerticalDistance;
-
-                Log.e(TAG, "scrollVerticalDistance: " + scrollVerticalDistance);
-                scrollBy(0, scrollVerticalDistance);
                 mVerticalLastMove = mVerticalMove;
+
                 break;
         }
         return super.onTouchEvent(event);
@@ -96,9 +110,5 @@ public class ScrollRelativeLayout extends RelativeLayout {
             scrollBy(0, verticalY);
             invalidate();
         }
-    }
-
-    public void resetScrollVertical() {
-        scrollTo(0, 0);
     }
 }
