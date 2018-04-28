@@ -51,16 +51,6 @@ public class ScrollRelativeLayout extends RelativeLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        int[] recyclerViewLocationInWindow = new int[2];
-        mCanScrollRecyclerView.getLocationInWindow(recyclerViewLocationInWindow);
-        int recyclerViewTop = recyclerViewLocationInWindow[1];
-        int viewBottom = recyclerViewTop + mCanScrollRecyclerView.getHeight();
-
-        int[] parentViewLocationInWindow = new int[2];
-        getLocationInWindow(parentViewLocationInWindow);
-        int parentViewTop = parentViewLocationInWindow[1];
-        int parentViewBottom = parentViewTop + getHeight();
-
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mVerticalDown = event.getRawY();
@@ -73,6 +63,15 @@ public class ScrollRelativeLayout extends RelativeLayout {
 //                invalidate();
 
                 if (mCanScrollRecyclerView != null) {
+                    int[] recyclerViewLocationInWindow = new int[2];
+                    mCanScrollRecyclerView.getLocationInWindow(recyclerViewLocationInWindow);
+                    int recyclerViewTop = recyclerViewLocationInWindow[1];
+                    int viewBottom = recyclerViewTop + mCanScrollRecyclerView.getHeight();
+
+                    int[] parentViewLocationInWindow = new int[2];
+                    getLocationInWindow(parentViewLocationInWindow);
+                    int parentViewTop = parentViewLocationInWindow[1];
+                    int parentViewBottom = parentViewTop + getHeight();
 
                     int position = mLayoutManager.findFirstCompletelyVisibleItemPosition();
                     int actionMove = 0x1;
