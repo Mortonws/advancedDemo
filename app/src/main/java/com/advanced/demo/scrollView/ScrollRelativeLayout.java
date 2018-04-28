@@ -1,6 +1,7 @@
 package com.advanced.demo.scrollView;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -17,6 +18,9 @@ import java.util.Locale;
 
 public class ScrollRelativeLayout extends RelativeLayout {
     private final static String TAG = "Scroll.RelativeLayout";
+
+    private final static int ACTION_MOVE_UP = 0x1 << 1;
+
     private Scroller mScroller;
 
     @SuppressWarnings("FieldCanBeLocal")
@@ -26,6 +30,8 @@ public class ScrollRelativeLayout extends RelativeLayout {
     private float mVerticalMove;
 
     private RecyclerView mCanScrollRecyclerView;
+    private LinearLayoutManager mLayoutManager;
+    private boolean mShouldHookMotionEvent = false;
 
     public ScrollRelativeLayout(Context context) {
         this(context, null);
@@ -38,17 +44,28 @@ public class ScrollRelativeLayout extends RelativeLayout {
 
     public void setRecyclerView(RecyclerView recyclerView) {
         this.mCanScrollRecyclerView = recyclerView;
-
+        if (mCanScrollRecyclerView != null) {
+            mLayoutManager = (LinearLayoutManager) mCanScrollRecyclerView.getLayoutManager();
+        }
     }
-
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
+        int[] recyclerViewLocationInWindow = new int[2];
+        mCanScrollRecyclerView.getLocationInWindow(recyclerViewLocationInWindow);
+        int recyclerViewTop = recyclerViewLocationInWindow[1];
+        int viewBottom = recyclerViewTop + mCanScrollRecyclerView.getHeight();
+
+        int[] parentViewLocationInWindow = new int[2];
+        getLocationInWindow(parentViewLocationInWindow);
+        int parentViewTop = parentViewLocationInWindow[1];
+        int parentViewBottom = parentViewTop + getHeight();
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mVerticalDown = event.getRawY();
                 mVerticalLastMove = mVerticalDown;
-                return true;
+                break;
             case MotionEvent.ACTION_MOVE:
                 mVerticalMove = event.getRawY();
                 int scrollVerticalDistance = (int) (mVerticalLastMove - mVerticalMove);
@@ -56,32 +73,60 @@ public class ScrollRelativeLayout extends RelativeLayout {
 //                invalidate();
 
                 if (mCanScrollRecyclerView != null) {
-                    int[] recyclerViewLocationInWindow = new int[2];
-                    mCanScrollRecyclerView.getLocationInWindow(recyclerViewLocationInWindow);
-                    int recyclerViewTop = recyclerViewLocationInWindow[1];
-                    int viewBottom = recyclerViewTop + mCanScrollRecyclerView.getHeight();
 
-                    int[] parentViewLocationInWindow = new int[2];
-                    getLocationInWindow(parentViewLocationInWindow);
-                    int parentViewTop = parentViewLocationInWindow[1];
-                    int parentViewBottom = parentViewTop + getHeight();
-
-                    if (scrollVerticalDistance > 0) {
+                    int position = mLayoutManager.findFirstCompletelyVisibleItemPosition();
+                    int actionMove = 0x1;
+                    if (scrollVerticalDistance >= 0) {
+                        actionMove = actionMove << 1;
                         if (recyclerViewTop - scrollVerticalDistance < parentViewTop) {
                             scrollVerticalDistance = recyclerViewTop - parentViewTop;
                         }
                     } else if (scrollVerticalDistance < 0) {
+                        actionMove = actionMove << 2;
                         if (viewBottom - scrollVerticalDistance > parentViewBottom) {
                             scrollVerticalDistance = viewBottom - parentViewBottom;
                         }
                     }
                     scrollBy(0, scrollVerticalDistance);
+                    if (actionMove == ACTION_MOVE_UP) {
+                        if (position != 0 || recyclerViewTop == parentViewTop || scrollVerticalDistance < 0.5) {
+                            if (!mShouldHookMotionEvent) {
+                                mShouldHookMotionEvent = true;
+
+                                event.setAction(MotionEvent.ACTION_DOWN);
+                                ScrollRelativeLayout.super.dispatchTouchEvent(event);
+                                event.setAction(MotionEvent.ACTION_MOVE);
+                            }
+
+                        } else {
+                            mShouldHookMotionEvent = false;
+                            scrollBy(0, scrollVerticalDistance);
+                        }
+                    } else {
+                        if (position != 0) {
+                            if (!mShouldHookMotionEvent) {
+                                mShouldHookMotionEvent = true;
+
+                                event.setAction(MotionEvent.ACTION_DOWN);
+                                ScrollRelativeLayout.super.dispatchTouchEvent(event);
+                                event.setAction(MotionEvent.ACTION_MOVE);
+                            }
+                        } else {
+                            mShouldHookMotionEvent = false;
+                            if (Math.abs(scrollVerticalDistance) > 5) {
+                                scrollBy(0, scrollVerticalDistance);
+                            }
+                        }
+                    }
                 }
                 mVerticalLastMove = mVerticalMove;
-
+                break;
+            default:
+                mShouldHookMotionEvent = false;
                 break;
         }
-        return super.onTouchEvent(event);
+        super.dispatchTouchEvent(event);
+        return true;
     }
 
     @Override
