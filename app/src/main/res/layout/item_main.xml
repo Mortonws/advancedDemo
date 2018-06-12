@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@drawable/bg_main_item"
+              android:background="@color/white"
               android:orientation="vertical">
 
     <TextView
@@ -13,8 +12,7 @@
         android:gravity="center_vertical"
         android:paddingLeft="24dp"
         android:textColor="@color/com_tenpay_back_btn_bg_pressed"
-        android:textSize="24dp"
-        tools:text="Hello World"/>
+        android:textSize="24sp"/>
 
     <View
         android:layout_width="match_parent"

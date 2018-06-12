@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.advanced.demo">
+          package="com.advanced.demo">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -22,110 +22,110 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".emoji.EmojiActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".singleTask.ActivityA"
             android:launchMode="singleTask"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".singleTask.ActivityB"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".singleTask.ActivityC"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".singleTask.ActivityD"
             android:launchMode="singleInstance"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".propertyAnimator.PropertyAnimatorActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".edittextUI.EditTextUIActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".lockDevice.LockDeviceActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <receiver
             android:name=".lockDevice.LockReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
-                android:resource="@xml/lock_screen" />
+                android:resource="@xml/lock_screen"/>
             <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
             </intent-filter>
         </receiver>
 
         <activity
             android:name=".camera.TakePicByCameraActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".rotationSensor.RotationSensorActivity"
-            android:screenOrientation="nosensor"></activity>
+            android:screenOrientation="nosensor" />
 
         <activity
             android:name=".contacts.ReadContactActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".transctionView.CircleTransactionViewActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".cameraDetect.CameraDetectActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".cameraPreview.CameraPreviewActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".retrofit.RetrofitRequestActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".emulator.EmulatorTestActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".devicePropteryCollect.BatteryCollectActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".qrScan.QRScanActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".gyro.GyroActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".fragment.HelloWorldFragmentActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".anr.ANRActivity"
-            android:screenOrientation="nosensor" />
-        <activity
-            android:name=".annotationTest.TestAnnotationActivity_"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
         <activity
             android:name=".notification.PendingNotificationActivity"
-            android:screenOrientation="nosensor" />
-        <activity android:name=".notification.DemoActivity" />
-        <activity android:name=".openSocial.OpenSocialActivity" />
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".notification.DemoActivity"/>
+        <activity android:name=".openSocial.OpenSocialActivity"/>
+        <activity
+            android:name=".scrollView.DispatchScrollActivity"
+            android:screenOrientation="nosensor"/>
 
-        <service android:name=".anr.ANRService" />
+        <service android:name=".anr.ANRService"/>
     </application>
 
 </manifest>

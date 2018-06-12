@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.3'
+    compileSdkVersion 27
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.advanced.demo"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -57,7 +56,7 @@ def AAVersion = "4.3.1" // change this to your desired version, for example the 
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta4'
+    compile 'com.android.support.constraint:constraint-layout:1.1.0'
     compile project(':baselib')
     compile project(':zxinglib')
     compile project(':pullRefreshLib')
@@ -70,8 +69,6 @@ dependencies {
     //    annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
     //    compile 'com.squareup.picasso:picasso:2.5.2'
     //    compile 'com.jm.android.collector.property:jmcollector:1.0.13'
-    implementation 'com.android.support:recyclerview-v7:26.0.2'
-    implementation 'com.android.support:appcompat-v7:26.0.2'
-    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
-    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.android.support:appcompat-v7:27.1.1'
 }
