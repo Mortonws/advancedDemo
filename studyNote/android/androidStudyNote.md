@@ -9,3 +9,6 @@
 ---
 - 线程池的实现方式
 - 内存泄漏和内存溢出，以及如何避免
+---
+- [View的绘制流程(简易版讲解)](https://www.jianshu.com/p/c151efe22d0d)
+- [View的绘制流程(详细版讲解)](https://www.jianshu.com/p/5a71014e7b1b)
