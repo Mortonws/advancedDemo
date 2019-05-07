@@ -4,3 +4,9 @@
     - UNSPECIFIED：不指定测量模式，父视图没有限制子视图的大小，子视图可以是想要的任何尺寸，通常用于系统内部，应用开发中很少使用到。
     - EXACTLY：精确测量模式，当该视图的 layout_width 或者 layout_height 指定为具体数值或者 match_parent 时生效，表示父视图已经决定了子视图的精确大小，这种模式下 View 的测量值就是 SpecSize 的值。
     - AT_MOST：最大值模式，当前视图的 layout_width 或者 layout_height 指定为 wrap_content 时生效，此时子视图的尺寸可以是不超过父视图运行的最大尺寸的任何尺寸。
+
+```
+讲解链接
+```
+- [View的绘制流程(简易版讲解)](https://www.jianshu.com/p/c151efe22d0d)
+- [View的绘制流程(详细版讲解)](https://www.jianshu.com/p/5a71014e7b1b)
