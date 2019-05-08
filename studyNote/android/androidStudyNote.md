@@ -2,10 +2,15 @@
 - handler的实现方式
 - View的绘制
 - 手势分发与拦截
+    - [事件分发机制详解攻略](https://blog.csdn.net/carson_ho/article/details/54136311)
 - launchMode
 - ThreadLocal
 - EventBus原理解析
+    - [EventBus 3.0初探: 入门使用及其使用 完全解析](https://blog.csdn.net/a553181867/article/details/52475213)
+    - [EventBus 3.0进阶：源码及其设计模式 完全解析](https://blog.csdn.net/a553181867/article/details/52531479)
 - glide原理解析
+    - [Glide源码讲解攻略](https://blog.csdn.net/carson_ho/article/details/79212841)
+    - [Glide缓存功能分析](https://blog.csdn.net/carson_ho/article/details/79256892)
 ---
 - 线程池的实现方式
 - 内存泄漏和内存溢出，以及如何避免
