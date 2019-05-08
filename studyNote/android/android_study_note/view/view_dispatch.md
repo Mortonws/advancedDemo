@@ -1,1 +1,2 @@
-[view的分发事件](https://blog.csdn.net/carson_ho/article/details/54136311)
+- [view事件分发机制](https://blog.csdn.net/carson_ho/article/details/54136311)
+- [view事件分发机制](https://blog.csdn.net/a553181867/article/details/51287844)
