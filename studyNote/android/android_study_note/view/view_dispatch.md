@@ -1,0 +1,1 @@
+[view的分发事件](https://blog.csdn.net/carson_ho/article/details/54136311)
