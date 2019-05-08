@@ -8,6 +8,12 @@
 - [废墟的树](http://blog.csdn.net/feiduclear_up)
 - [郭霖](http://blog.csdn.net/guolin_blog)
 - [蓝天白云梦](https://blog.csdn.net/a553181867/article/category/5954959)
+- [Carson_Ho(CSDN签约作者、稀土掘金专栏作者 & 简书推荐作者)](https://blog.csdn.net/carson_ho?t=1)
+
+```
+Android学习指南
+```
+- [全面 & 详细的Android学习指南](https://blog.csdn.net/carson_ho/article/details/89838873)
 
 ```
 以下为收集的Android知识点解析
