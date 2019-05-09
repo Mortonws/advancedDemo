@@ -3,7 +3,7 @@
 - View的绘制
 - 手势分发与拦截
     - [事件分发机制详解攻略](https://blog.csdn.net/carson_ho/article/details/54136311)
-    - [事件分发概略](./studyNote/android_study_note/view/view_dispatch_md)
+    - [事件分发概略](/studyNote/android/android_study_note/view/view_dispatch_md)
 - launchMode
 - ThreadLocal
 - EventBus原理解析
