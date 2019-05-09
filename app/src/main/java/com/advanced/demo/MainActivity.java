@@ -14,6 +14,7 @@ import com.advanced.demo.devicePropteryCollect.BatteryCollectActivity;
 import com.advanced.demo.edittextUI.EditTextUIActivity;
 import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.emulator.EmulatorTestActivity;
+import com.advanced.demo.eventBus.EventBusActivity;
 import com.advanced.demo.fragment.HelloWorldFragmentActivity;
 import com.advanced.demo.gyro.GyroActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
@@ -28,6 +29,8 @@ import com.advanced.demo.scrollView.DispatchScrollActivity;
 import com.advanced.demo.singleTask.ActivityD;
 import com.advanced.demo.transctionView.CircleTransactionViewActivity;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class MainActivity extends BaseActivity {
 //    private final static String TAG = "MainActivity";
 
@@ -36,6 +39,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initPages() {
         super.initPages();
+        mAdapter.addData(EventBusActivity.class, "Event Bus");
         mAdapter.addData(DispatchScrollActivity.class, "Dispatch Scroll");
         mAdapter.addData(OpenSocialActivity.class, "Open Social");
         mAdapter.addData(PendingNotificationActivity.class, "Pending Notification Msg");

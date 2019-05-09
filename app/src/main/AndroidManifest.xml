@@ -124,8 +124,11 @@
         <activity
             android:name=".scrollView.DispatchScrollActivity"
             android:screenOrientation="nosensor"/>
+        <activity android:name=".eventBus.EventBusActivity"
+            android:screenOrientation="nosensor" />
 
         <service android:name=".anr.ANRService"/>
+
     </application>
 
 </manifest>

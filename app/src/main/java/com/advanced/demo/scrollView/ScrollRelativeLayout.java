@@ -80,7 +80,7 @@ public class ScrollRelativeLayout extends RelativeLayout {
                         if (recyclerViewTop - scrollVerticalDistance < parentViewTop) {
                             scrollVerticalDistance = recyclerViewTop - parentViewTop;
                         }
-                    } else if (scrollVerticalDistance < 0) {
+                    } else {
                         actionMove = actionMove << 2;
                         if (viewBottom - scrollVerticalDistance > parentViewBottom) {
                             scrollVerticalDistance = viewBottom - parentViewBottom;

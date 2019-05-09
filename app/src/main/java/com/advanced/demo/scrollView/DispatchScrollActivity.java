@@ -7,8 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.R;
+import com.advanced.demo.eventBus.MessageEvent;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * @author by morton_ws on 2018/4/28.
@@ -22,7 +25,6 @@ public class DispatchScrollActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -52,6 +54,5 @@ public class DispatchScrollActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 }
