@@ -45,6 +45,10 @@ android {
 //            resValue("string", "advanced_app_name", "\"Advanced\"")
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
