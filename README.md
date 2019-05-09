@@ -74,9 +74,10 @@ Java基础知识解析
 知识点归纳
 ```
 
+- [Android知识点归纳](/studyNote/android/android_study_note/androidStudyNote.md)
+- [每日知识点计划](/studyNote/android/android_study_note/daily_knowledge_study_program.md)
 - [读书笔记](/studyNote/android/study_note.txt)
 - [每日温故知识点](/studyNote/everyDayStudyList.md)
-- [每日知识点计划](/studyNote/android/daily_knowledge_study_program.md)
 
 ---
 ~~[Activity启动过程](/studyNote/android/activityLaunchProcess.md)~~
