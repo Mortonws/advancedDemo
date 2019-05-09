@@ -12,6 +12,8 @@
     - [Glide源码讲解攻略](https://blog.csdn.net/carson_ho/article/details/79212841)
     - [Glide缓存功能分析](https://blog.csdn.net/carson_ho/article/details/79256892)
 ---
+- synchronize
+    - [Synchronized关键字 学习指南](https://blog.csdn.net/carson_ho/article/details/82992269)
 - 线程池的实现方式
 - 内存泄漏和内存溢出，以及如何避免
 - 常用数据结构和算法基础
