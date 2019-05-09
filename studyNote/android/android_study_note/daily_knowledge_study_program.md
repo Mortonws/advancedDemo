@@ -11,4 +11,6 @@
 ```
 2019.5.10知识看点
 ```
+- [内存泄漏](https://www.jianshu.com/p/97fb764f2669)
+- [最易懂的Activity启动模式详解](https://www.jianshu.com/p/399e83d02e33)
 - [浅析Android View(一)](https://blog.csdn.net/soul_code/article/details/50477338)
