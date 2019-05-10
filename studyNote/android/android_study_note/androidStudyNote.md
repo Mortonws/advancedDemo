@@ -32,3 +32,5 @@
         - 字典树
 - Jvm
     - [Java对象的创建、内存布局 & 访问定位 全过程解析](https://www.jianshu.com/p/1952061502d0)
+- 网络
+    - [彻底理解cookie、session、token](https://mp.weixin.qq.com/s?__biz=MzIwNTc4NTEwOQ==&mid=2247486848&idx=1&sn=86582832f5f3a59c1ffefd415adc075a&chksm=972adcfaa05d55ecadded4a865db8d63dde0388d0bc999a47fe355496e674b88227ffd31d383&mpshare=1&scene=1&srcid=#rd)
