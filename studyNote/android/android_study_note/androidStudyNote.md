@@ -15,6 +15,8 @@
 ---
 - synchronize
     - [Synchronized关键字 学习指南](https://blog.csdn.net/carson_ho/article/details/82992269)
+- 8583报文协议
+    - [ISO8583报文协议——很容易理解](https://blog.csdn.net/yuan_hong_wei/article/details/49148721)
 - 线程池的实现方式
 - 内存泄漏和内存溢出，以及如何避免
 - 常用数据结构和算法基础
