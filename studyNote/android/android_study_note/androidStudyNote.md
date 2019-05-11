@@ -18,6 +18,7 @@
 - Activity的启动方式
     - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
     - [程序员的自我反思](https://blog.csdn.net/a553181867/article/details/89917857)
+    - [翰墨飘香-简书](https://www.jianshu.com/p/10304415bae5)
 - handler的实现方式
 - View的绘制
 - 手势分发与拦截

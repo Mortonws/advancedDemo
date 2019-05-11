@@ -19,4 +19,4 @@
 ```
 - [Android事件分发机制(温故)](https://blog.csdn.net/carson_ho/article/details/54136311)
 - [Activity的启动过程](https://blog.csdn.net/a553181867/article/details/89917857)
-- [基本数据结构类型]
+- 基本数据结构类型
