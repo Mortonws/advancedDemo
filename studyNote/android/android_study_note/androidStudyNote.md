@@ -1,3 +1,20 @@
+```
+知识点总纲
+```
+- Android事件分发机制
+- Activity的启动模式
+- Activity的启动过程
+- View的绘制过程
+- View的自定义
+- Android的内存泄漏介绍与预防
+- 基本数据结构类型
+- Android APP 进程保活的方式
+- AndroidIPC机制以及Binder机制
+- 常用的设计模式
+- 基本的排序算法
+- Glide源码解析
+- Retrofit的基本使用、原理讲解以及源码简单解析
+---
 - Activity的启动方式
 - handler的实现方式
 - View的绘制
