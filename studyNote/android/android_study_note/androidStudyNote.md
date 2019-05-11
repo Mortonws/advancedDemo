@@ -16,6 +16,8 @@
 - Retrofit的基本使用、原理讲解以及源码简单解析
 ---
 - Activity的启动方式
+    - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
+    - [程序员的自我反思](https://blog.csdn.net/a553181867/article/details/89917857)
 - handler的实现方式
 - View的绘制
 - 手势分发与拦截
