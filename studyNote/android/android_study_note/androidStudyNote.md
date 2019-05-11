@@ -19,7 +19,7 @@
 - handler的实现方式
 - View的绘制
 - 手势分发与拦截
-    - [事件分发机制详解攻略](https://blog.csdn.net/carson_ho/article/details/54136311)
+    - [事件分发机制详解攻略](https://www.jianshu.com/p/38015afcdb58)
     - [事件分发概略](./view/view_dispatch.md)
 - launchMode
 - ThreadLocal
@@ -36,6 +36,7 @@
     - [ISO8583报文协议——很容易理解](https://blog.csdn.net/yuan_hong_wei/article/details/49148721)
 - 线程池的实现方式
 - 内存泄漏和内存溢出，以及如何避免
+- 抽象类和接口的区别，分别在什么时候使用？
 - 常用数据结构和算法基础
     - 数据结构
         - 数组
