@@ -13,7 +13,10 @@
 - 常用的设计模式
 - 基本的排序算法
 - Glide源码解析
+- 为了避免OOM，善于使用软引用和弱引用
 - Retrofit的基本使用、原理讲解以及源码简单解析
+- HashMap源码解析
+- Android线程池的原理与使用
 ---
 - Activity的启动方式
     - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
@@ -55,3 +58,4 @@
     - [Java对象的创建、内存布局 & 访问定位 全过程解析](https://www.jianshu.com/p/1952061502d0)
 - 网络
     - [彻底理解cookie、session、token](https://mp.weixin.qq.com/s?__biz=MzIwNTc4NTEwOQ==&mid=2247486848&idx=1&sn=86582832f5f3a59c1ffefd415adc075a&chksm=972adcfaa05d55ecadded4a865db8d63dde0388d0bc999a47fe355496e674b88227ffd31d383&mpshare=1&scene=1&srcid=#rd)
+- [Java 如何有效地避免OOM：善于利用软引用和弱引用](https://www.cnblogs.com/dolphin0520/p/3784171.html)
