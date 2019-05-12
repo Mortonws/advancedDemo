@@ -18,20 +18,31 @@
 - HashMap源码解析
 - Android线程池的原理与使用
 ---
+- [Android 屏幕适配：最全面的解决方案](https://www.jianshu.com/p/ec5a1a30694b)
+- 自定义View
+    - [自定义View、动画](https://blog.csdn.net/carson_ho/column/info/14815)
+    - [自定义View](https://www.jianshu.com/nb/9976005)
 - Activity的启动方式
-    - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
-    - [程序员的自我反思](https://blog.csdn.net/a553181867/article/details/89917857)
-    - [翰墨飘香-简书](https://www.jianshu.com/p/10304415bae5)
     - 来自刘望舒的解析
         - [Android8.0 根Activity启动过程（前篇）](http://liuwangshu.cn/framework/component/6-activity-start-1.html)
         - [Android8.0 根Activity启动过程（后篇）](http://liuwangshu.cn/framework/component/7-activity-start-2.html)
-- handler的实现方式
-- View的绘制
+    - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
+    - [程序员的自我反思](https://blog.csdn.net/a553181867/article/details/89917857)
+    - [翰墨飘香-简书](https://www.jianshu.com/p/10304415bae5)
+- Android：远程服务Service（含AIDL & IPC讲解）
+    - [CSDN](https://blog.csdn.net/carson_ho/article/details/53160279)
+    - [简书](https://www.jianshu.com/p/34326751b2c6)
+- [Android多线程](https://blog.csdn.net/carson_ho/column/info/14816)
+    - [完全解析线程池ThreadPool原理&使用](https://blog.csdn.net/carson_ho/article/details/80060201)
+    - [这是一份详细的AsyncTask使用教程](https://blog.csdn.net/carson_ho/article/details/79314325)
+    - [AsyncTask的原理 及其源码分析](https://blog.csdn.net/carson_ho/article/details/79314326)
+- [View的绘制](https://www.jianshu.com/p/5a71014e7b1b)
 - 手势分发与拦截
     - [事件分发机制详解攻略](https://www.jianshu.com/p/38015afcdb58)
     - [事件分发概略](./view/view_dispatch.md)
 - launchMode
 - ThreadLocal
+- handler的实现方式
 - EventBus原理解析
     - [EventBus 3.0初探: 入门使用及其使用 完全解析](https://blog.csdn.net/a553181867/article/details/52475213)
     - [EventBus 3.0进阶：源码及其设计模式 完全解析](https://blog.csdn.net/a553181867/article/details/52531479)
@@ -43,7 +54,6 @@
     - [Synchronized关键字 学习指南](https://blog.csdn.net/carson_ho/article/details/82992269)
 - 8583报文协议
     - [ISO8583报文协议——很容易理解](https://blog.csdn.net/yuan_hong_wei/article/details/49148721)
-- 线程池的实现方式
 - 内存泄漏和内存溢出，以及如何避免
 - 抽象类和接口的区别，分别在什么时候使用？
 - 常用数据结构和算法基础

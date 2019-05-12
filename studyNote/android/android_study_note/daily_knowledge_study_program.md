@@ -20,3 +20,16 @@
 - [Android事件分发机制(温故)](https://blog.csdn.net/carson_ho/article/details/54136311)
 - [Activity的启动过程](https://blog.csdn.net/a553181867/article/details/89917857)
 - 基本数据结构类型
+```
+2019.5.13知识看点
+```
+- Activity的启动过程-刘望舒
+    - [Android深入四大组件（六）Android8.0 根Activity启动过程（前篇）](http://liuwangshu.cn/framework/component/6-activity-start-1.html)
+    - [Android深入四大组件（七）Android8.0 根Activity启动过程（后篇）](http://liuwangshu.cn/framework/component/7-activity-start-2.html)
+- Window把View添加到Activity的过程
+    - [Android解析WindowManager（三）Window的添加过程](http://liuwangshu.cn/framework/wm/3-add-window.html)
+- HashMap源码解析
+    - [Java：手把手带你源码分析 HashMap 1.7](https://blog.csdn.net/carson_ho/article/details/79373026)
+    - [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)
+- Android多线程
+- 自定义View
