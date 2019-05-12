@@ -22,6 +22,9 @@
     - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
     - [程序员的自我反思](https://blog.csdn.net/a553181867/article/details/89917857)
     - [翰墨飘香-简书](https://www.jianshu.com/p/10304415bae5)
+    - 来自刘望舒的解析
+        - [Android8.0 根Activity启动过程（前篇）](http://liuwangshu.cn/framework/component/6-activity-start-1.html)
+        - [Android8.0 根Activity启动过程（后篇）](http://liuwangshu.cn/framework/component/7-activity-start-2.html)
 - handler的实现方式
 - View的绘制
 - 手势分发与拦截
