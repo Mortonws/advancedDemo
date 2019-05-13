@@ -29,6 +29,7 @@
     - [凶残的程序员](https://blog.csdn.net/qian520ao/article/details/78156214)
     - [程序员的自我反思](https://blog.csdn.net/a553181867/article/details/89917857)
     - [翰墨飘香-简书](https://www.jianshu.com/p/10304415bae5)
+    - [Activity启动归纳](./activity/activity_start.md)
 - Android：远程服务Service（含AIDL & IPC讲解）
     - [CSDN](https://blog.csdn.net/carson_ho/article/details/53160279)
     - [简书](https://www.jianshu.com/p/34326751b2c6)
@@ -43,6 +44,7 @@
 - launchMode
 - ThreadLocal
 - handler的实现方式
+    - [Handler消息发送循环流程](./handler/handler_work.md)
 - EventBus原理解析
     - [EventBus 3.0初探: 入门使用及其使用 完全解析](https://blog.csdn.net/a553181867/article/details/52475213)
     - [EventBus 3.0进阶：源码及其设计模式 完全解析](https://blog.csdn.net/a553181867/article/details/52531479)
