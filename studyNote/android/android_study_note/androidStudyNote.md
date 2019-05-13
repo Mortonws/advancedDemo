@@ -20,8 +20,8 @@
 ---
 - [Android 屏幕适配：最全面的解决方案](https://www.jianshu.com/p/ec5a1a30694b)
 - 自定义View
-    - [自定义View、动画](https://blog.csdn.net/carson_ho/column/info/14815)
-    - [自定义View](https://www.jianshu.com/nb/9976005)
+    - [自定义View、动画-CSDN](https://blog.csdn.net/carson_ho/column/info/14815)
+    - [自定义View-简书](https://www.jianshu.com/nb/9976005)
 - Activity的启动方式
     - 来自刘望舒的解析
         - [Android8.0 根Activity启动过程（前篇）](http://liuwangshu.cn/framework/component/6-activity-start-1.html)
@@ -74,3 +74,4 @@
 - 网络
     - [彻底理解cookie、session、token](https://mp.weixin.qq.com/s?__biz=MzIwNTc4NTEwOQ==&mid=2247486848&idx=1&sn=86582832f5f3a59c1ffefd415adc075a&chksm=972adcfaa05d55ecadded4a865db8d63dde0388d0bc999a47fe355496e674b88227ffd31d383&mpshare=1&scene=1&srcid=#rd)
 - [Java 如何有效地避免OOM：善于利用软引用和弱引用](https://www.cnblogs.com/dolphin0520/p/3784171.html)
+- [mqtt解析博主博客](https://my.oschina.net/u/3729361)
