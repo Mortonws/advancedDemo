@@ -53,6 +53,8 @@
 - ThreadLocal
 - handler的实现方式
     - [Handler消息发送循环流程](./handler/handler_work.md)
+- [屏幕适配-google官方文档](https://developer.android.com/training/multiscreen/screensizes)
+    - [屏幕适配：最全面的解决方案-Carson_Ho](https://www.jianshu.com/p/ec5a1a30694b)
 - EventBus原理解析
     - [EventBus 3.0初探: 入门使用及其使用 完全解析](https://blog.csdn.net/a553181867/article/details/52475213)
     - [EventBus 3.0进阶：源码及其设计模式 完全解析](https://blog.csdn.net/a553181867/article/details/52531479)
