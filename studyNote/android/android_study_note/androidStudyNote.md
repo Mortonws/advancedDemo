@@ -18,13 +18,13 @@
 - HashMap源码解析
 - Android线程池的原理与使用
 ---
-> Binder驱动的原理与实现
-> AIDL的实现
-> IPC进程间通信
-> 基础的数据结构与算法
-> HaspMap的实现原理，从源码角度分析
-> 网络通信协议
-> JVM虚拟机的类的加载过程
+> - Binder驱动的原理与实现
+> - AIDL的实现
+> - IPC进程间通信
+> - 基础的数据结构与算法
+> - HaspMap的实现原理，从源码角度分析
+> - 网络通信协议
+> - JVM虚拟机的类的加载过程
 ---
 - [Android 屏幕适配：最全面的解决方案](https://www.jianshu.com/p/ec5a1a30694b)
 - 自定义View
