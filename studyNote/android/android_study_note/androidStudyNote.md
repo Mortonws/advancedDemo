@@ -23,7 +23,7 @@
 > - IPC进程间通信
 > - 基础的数据结构与算法
 > - HaspMap的实现原理，从源码角度分析
-> - 网络通信协议
+> - 熟悉网络编程，熟悉TCP/IP、UDP、HTTP等协议
 > - JVM虚拟机的类的加载过程
 ---
 - [Android 屏幕适配：最全面的解决方案](https://www.jianshu.com/p/ec5a1a30694b)
