@@ -25,6 +25,8 @@
 > - HaspMap的实现原理，从源码角度分析
 > - 熟悉网络编程，熟悉TCP/IP、UDP、HTTP等协议
 > - JVM虚拟机的类的加载过程
+> - Java线程相关知识
+> - Android性能相关优化
 ---
 - [Android 屏幕适配：最全面的解决方案](https://www.jianshu.com/p/ec5a1a30694b)
 - 自定义View
@@ -85,3 +87,4 @@
     - [彻底理解cookie、session、token](https://mp.weixin.qq.com/s?__biz=MzIwNTc4NTEwOQ==&mid=2247486848&idx=1&sn=86582832f5f3a59c1ffefd415adc075a&chksm=972adcfaa05d55ecadded4a865db8d63dde0388d0bc999a47fe355496e674b88227ffd31d383&mpshare=1&scene=1&srcid=#rd)
 - [Java 如何有效地避免OOM：善于利用软引用和弱引用](https://www.cnblogs.com/dolphin0520/p/3784171.html)
 - [mqtt解析博主博客](https://my.oschina.net/u/3729361)
+- [Java线程面试题 Top 50](https://www.cnblogs.com/dolphin0520/p/3958019.html)
