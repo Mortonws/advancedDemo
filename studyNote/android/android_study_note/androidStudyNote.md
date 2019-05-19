@@ -57,6 +57,10 @@
     - [Handler消息发送循环流程](./handler/handler_work.md)
 - [屏幕适配-google官方文档](https://developer.android.com/training/multiscreen/screensizes)
     - [屏幕适配：最全面的解决方案-Carson_Ho](https://www.jianshu.com/p/ec5a1a30694b)
+- [View(或者说ViewGroup)在什么情况下不调用onDraw方法](https://blog.csdn.net/leehong2005/article/details/7299471)
+- [大图的显示方法(BitmapRegionDecoder)](https://blog.csdn.net/lmj623565791/article/details/49300989)
+- [View 深度分析requestLayout、invalidate与postInvalidate](https://www.jianshu.com/p/effe9b4333de)
+- [关于View中mParent的来龙去脉](https://www.jianshu.com/p/a6fd2c4db80d)
 - EventBus原理解析
     - [EventBus 3.0初探: 入门使用及其使用 完全解析](https://blog.csdn.net/a553181867/article/details/52475213)
     - [EventBus 3.0进阶：源码及其设计模式 完全解析](https://blog.csdn.net/a553181867/article/details/52531479)
