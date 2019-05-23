@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.R;
+import com.bumptech.glide.Glide;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -34,6 +35,7 @@ public class EventBusActivity extends BaseActivity {
     protected void initPages() {
         super.initPages();
         EventBus.getDefault().register(this);
+        Glide.with(mContext).load("");
     }
 
     @Override

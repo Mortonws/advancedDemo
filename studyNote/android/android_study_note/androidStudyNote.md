@@ -67,6 +67,7 @@
 - glide原理解析
     - [Glide源码讲解攻略](https://blog.csdn.net/carson_ho/article/details/79212841)
     - [Glide缓存功能分析](https://blog.csdn.net/carson_ho/article/details/79256892)
+    - [Glide生命周期管理](https://www.jianshu.com/p/b7d895b9f32c)
 ---
 - synchronize
     - [Synchronized关键字 学习指南](https://blog.csdn.net/carson_ho/article/details/82992269)
