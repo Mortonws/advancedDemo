@@ -68,6 +68,9 @@
     - [Glide源码讲解攻略](https://blog.csdn.net/carson_ho/article/details/79212841)
     - [Glide缓存功能分析](https://blog.csdn.net/carson_ho/article/details/79256892)
     - [Glide生命周期管理](https://www.jianshu.com/p/b7d895b9f32c)
+- OkHttp
+    - [OkHttp3 总结研究 （面试）](https://blog.csdn.net/u012881042/article/details/79759203)
+    - [OkHttp源码解析](https://blog.csdn.net/json_it/article/details/78404010)
 ---
 - synchronize
     - [Synchronized关键字 学习指南](https://blog.csdn.net/carson_ho/article/details/82992269)
