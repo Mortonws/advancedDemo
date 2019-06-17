@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
@@ -11,11 +11,27 @@
         android:text="Title"
         android:textColor="@color/jumei_red"
         android:background="@color/result_points"
+        android:visibility="gone"
         android:textSize="24sp"/>
 
     <FrameLayout
         android:id="@+id/contain_view"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="match_parent"/>
 
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_view"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:layout_centerVertical="true"
+        android:id="@+id/btn_start_jd"
+        android:text="start jd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

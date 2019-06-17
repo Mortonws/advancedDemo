@@ -1,8 +1,11 @@
 package com.advanced.demo;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.anr.ANRActivity;
@@ -16,6 +19,7 @@ import com.advanced.demo.emoji.EmojiActivity;
 import com.advanced.demo.emulator.EmulatorTestActivity;
 import com.advanced.demo.eventBus.EventBusActivity;
 import com.advanced.demo.fragment.HelloWorldFragmentActivity;
+import com.advanced.demo.fragmentAdapter.UserViewPagerActivity;
 import com.advanced.demo.gyro.GyroActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
@@ -29,16 +33,26 @@ import com.advanced.demo.scrollView.DispatchScrollActivity;
 import com.advanced.demo.singleTask.ActivityD;
 import com.advanced.demo.transctionView.CircleTransactionViewActivity;
 
-import org.greenrobot.eventbus.EventBus;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class MainActivity extends BaseActivity {
-//    private final static String TAG = "MainActivity";
+    private final static String TAG = MainActivity.class.getSimpleName();
 
     private MainAdapter mAdapter;
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Toast.makeText(mContext, "MainActivity OnCreate", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+
+    @Override
     protected void initPages() {
         super.initPages();
+        mAdapter.addData(UserViewPagerActivity.class, "User ViewPager");
         mAdapter.addData(EventBusActivity.class, "Event Bus");
         mAdapter.addData(DispatchScrollActivity.class, "Dispatch Scroll");
         mAdapter.addData(OpenSocialActivity.class, "Open Social");
@@ -82,5 +96,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int setLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
     }
 }

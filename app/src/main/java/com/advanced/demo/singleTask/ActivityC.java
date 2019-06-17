@@ -1,6 +1,8 @@
 package com.advanced.demo.singleTask;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -20,11 +22,18 @@ public class ActivityC extends BaseActivity {
     private TextView mPageName;
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        boolean hideLogoView = getIntent().getBooleanExtra("hide_logo_view", false);
+        sShowLogoView = !hideLogoView;
+    }
+
+    @Override
     protected void initView() {
         super.initView();
-        mStartNextActivity = (TextView) findViewById(R.id.btn_start_next);
+        mStartNextActivity = findViewById(R.id.btn_start_next);
         mStartNextActivity.setText("Start Page A");
-        mPageName = (TextView) findViewById(R.id.page_name);
+        mPageName = findViewById(R.id.page_name);
         mPageName.setText("Page C");
     }
 

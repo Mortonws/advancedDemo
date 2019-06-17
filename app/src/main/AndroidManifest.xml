@@ -17,10 +17,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/advanced_app_name"
+        android:name=".app.DemoApplication"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                  android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -126,6 +129,8 @@
             android:screenOrientation="nosensor"/>
         <activity android:name=".eventBus.EventBusActivity"
             android:screenOrientation="nosensor" />
+        <activity android:name=".fragmentAdapter.UserViewPagerActivity"
+                  android:screenOrientation="nosensor" />
 
         <service android:name=".anr.ANRService"/>
 
