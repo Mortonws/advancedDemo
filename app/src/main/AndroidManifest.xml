@@ -134,6 +134,9 @@
 
         <service android:name=".anr.ANRService"/>
 
+        <activity android:name=".liveDataDemo.LiveDataDemoActivity"
+                  android:screenOrientation="nosensor" />
+
     </application>
 
 </manifest>

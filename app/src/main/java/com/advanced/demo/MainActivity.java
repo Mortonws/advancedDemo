@@ -21,6 +21,7 @@ import com.advanced.demo.eventBus.EventBusActivity;
 import com.advanced.demo.fragment.HelloWorldFragmentActivity;
 import com.advanced.demo.fragmentAdapter.UserViewPagerActivity;
 import com.advanced.demo.gyro.GyroActivity;
+import com.advanced.demo.liveDataDemo.LiveDataDemoActivity;
 import com.advanced.demo.lockDevice.LockDeviceActivity;
 import com.advanced.demo.mainPage.MainAdapter;
 import com.advanced.demo.notification.PendingNotificationActivity;
@@ -52,6 +53,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initPages() {
         super.initPages();
+        mAdapter.addData(LiveDataDemoActivity.class, "LiveData Study");
         mAdapter.addData(UserViewPagerActivity.class, "User ViewPager");
         mAdapter.addData(EventBusActivity.class, "Event Bus");
         mAdapter.addData(DispatchScrollActivity.class, "Dispatch Scroll");
