@@ -2,36 +2,33 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_load_data"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/shape_default_bg"
-        android:text="Load Data"
+        android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/content"
-        android:padding="10dp"
+    <Button
+        android:id="@+id/btn_unregister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:textSize="18sp"
-        android:textColor="@color/cor_333333"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/shape_default_bg"
+        android:text="UnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_load_data"
-        tools:text="SangW"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_register"/>
 
 </android.support.constraint.ConstraintLayout>

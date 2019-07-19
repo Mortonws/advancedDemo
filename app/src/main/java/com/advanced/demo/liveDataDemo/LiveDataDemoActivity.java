@@ -1,60 +1,72 @@
 package com.advanced.demo.liveDataDemo;
 
-import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.advanced.baselib.base.BaseActivity;
 import com.advanced.demo.R;
 
 /**
- * @author by morton_ws on 2019-07-17.
+ * @author by morton_ws on 2019-07-18.
  */
 public class LiveDataDemoActivity extends BaseActivity {
 
-    Button mBtnRegister;
-    Button mBtnUnregister;
+    private Button mBtnLoadData;
+    private TextView mContent;
 
-    private LifecycleObserver mObserver;
-
-    @Override
-    protected int setLayoutId() {
-        return R.layout.activity_live_data_demo;
-    }
+    private DemoDataViewModel mViewModel;
 
     @Override
     protected void initView() {
         super.initView();
-        mBtnRegister = findViewById(R.id.btn_register);
-        mBtnUnregister = findViewById(R.id.btn_unregister);
+        mBtnLoadData = findViewById(R.id.btn_load_data);
+        mContent = findViewById(R.id.content);
     }
 
     @Override
     protected void initPages() {
         super.initPages();
+        mViewModel = ViewModelProviders.of(this).get(DemoDataViewModel.class);
     }
-
 
     @Override
     protected void initListener() {
         super.initListener();
-        mBtnRegister.setOnClickListener(new View.OnClickListener() {
+        mBtnLoadData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mObserver == null) {
-                    mObserver = new DemoLiveObserver();
-                    getLifecycle().addObserver(mObserver);
-                }
+                mContent.setText("loading data ...");
+                mViewModel.loadData();
             }
         });
-        mBtnUnregister.setOnClickListener(new View.OnClickListener() {
+        mViewModel.getContentLiveData().observeForever(new Observer<String>() {
             @Override
-            public void onClick(View v) {
-                if (mObserver != null) {
-                    getLifecycle().removeObserver(mObserver);
-                    mObserver = null;
-                }
+            public void onChanged(@Nullable String s) {
+                Log.e(getTag(), "[onChanged] content: " + s);
+                mContent.setText(s);
             }
         });
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.e(getTag(), "onAttachedToWindow");
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.e(getTag(), "onDetachedFromWindow");
+    }
+
+    @Override
+    protected int setLayoutId() {
+        return R.layout.activity_live_data_demo;
     }
 }

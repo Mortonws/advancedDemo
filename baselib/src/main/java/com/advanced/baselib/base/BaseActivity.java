@@ -45,4 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int setLayoutId();
+
+    protected String getTag() {
+        return this.getClass().getSimpleName();
+    }
 }
