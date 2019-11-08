@@ -14,6 +14,7 @@ import com.advanced.demo.R;
  */
 
 public class MainItemViewHolder extends RecyclerView.ViewHolder {
+    private final static String TAG = MainItemViewHolder.class.getSimpleName();
     private TextView itemName;
     private Context mContext;
 

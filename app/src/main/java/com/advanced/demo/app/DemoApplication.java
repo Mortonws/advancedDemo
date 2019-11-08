@@ -30,6 +30,10 @@ public class DemoApplication extends Application {
         register();
     }
 
+    public static boolean isAppForeground() {
+        return activityStartedCount > 0;
+    }
+
     private void register() {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override

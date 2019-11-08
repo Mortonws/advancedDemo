@@ -1,13 +1,17 @@
 package com.advanced.demo.emoji;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.advanced.baselib.base.BaseActivity;
@@ -18,12 +22,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author by morton_ws on 2017/8/12.
  */
 
 public class EmojiActivity extends BaseActivity {
+
+    private final static String TAG = EmojiActivity.class.getSimpleName();
 
     private final static int DEFAULT_PER_PAGE_EMOJI_SIZE = 21;
     private int mScrollState = ViewPager.SCROLL_STATE_IDLE;
@@ -36,7 +43,17 @@ public class EmojiActivity extends BaseActivity {
     private Button mUrlReset;
     private Button mUrlClear;
 
+    private RelativeLayout mLayoutRootView;
+
     private String mDefaultUrlContent = "https://www.baidu.com?keywords=今天天气不错";
+    private DialogEdit mDialogEdit;
+    private int mDialogHeight = 0;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    }
 
     @Override
     protected void initPages() {
@@ -86,15 +103,17 @@ public class EmojiActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        mEmojiViewPager = (ViewPager) findViewById(R.id.emoji_view_pager);
+        mDialogEdit = new DialogEdit(mContext);
+        mEmojiViewPager = findViewById(R.id.emoji_view_pager);
         mAdapter = new EmojiPagerAdapter(getSupportFragmentManager());
         mEmojiViewPager.setAdapter(mAdapter);
 
-        mUrlContent = (EditText) findViewById(R.id.url_content);
-        mUrlConvert = (Button) findViewById(R.id.url_convert);
-        mUrlResult = (TextView) findViewById(R.id.url_result);
-        mUrlReset = (Button) findViewById(R.id.url_reset);
-        mUrlClear = (Button) findViewById(R.id.url_clear);
+        mUrlContent = findViewById(R.id.url_content);
+        mUrlConvert = findViewById(R.id.url_convert);
+        mUrlResult = findViewById(R.id.url_result);
+        mUrlReset = findViewById(R.id.url_reset);
+        mUrlClear = findViewById(R.id.url_clear);
+        mLayoutRootView = findViewById(R.id.layout_root);
 
         mUrlContent.setText(mDefaultUrlContent);
     }
@@ -166,7 +185,51 @@ public class EmojiActivity extends BaseActivity {
                 mUrlResult.setText("");
             }
         });
+        findViewById(R.id.btn_show_edit_dialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialogEdit.show();
 
+            }
+        });
+        mDialogEdit.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                onDialogShow();
+            }
+        });
+        mDialogEdit.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                onDialogDismiss();
+            }
+        });
+    }
+
+    private void onDialogShow() {
+        mDialogHeight = mDialogEdit.getDialogRootView().getMeasuredHeight();
+        Log.e(TAG, "mDialogHeight = " + mDialogHeight);
+        mLayoutRootView.scrollBy(0, mDialogHeight);
+        mDialogEdit.getDialogRootView().addOnLayoutChangeListener(mOnLayoutChangeListener);
+    }
+
+    private View.OnLayoutChangeListener mOnLayoutChangeListener = new View.OnLayoutChangeListener() {
+
+        @Override
+        public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+            View view = mDialogEdit.getDialogRootView();
+            int[] locations = new int[2];
+            view.getLocationOnScreen(locations);
+
+            String msg = String.format(Locale.getDefault(), "oldBottom=%s; bottom=%s; dBttom=%s", oldBottom, bottom, (oldBottom - bottom));
+            Log.e(TAG, "[onLayoutChange]" + msg);
+            Log.e(TAG, "location_1=" + locations[1]);
+        }
+    };
+
+    private void onDialogDismiss() {
+        mLayoutRootView.scrollBy(0, -mDialogHeight);
+        mDialogEdit.getDialogRootView().removeOnLayoutChangeListener(mOnLayoutChangeListener);
     }
 
     private void requestByRetrofit() {

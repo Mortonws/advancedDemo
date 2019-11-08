@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/file_content"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:padding="8dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_default_bg"/>
+
+    <Button
+        android:id="@+id/btn_save_file"
+        android:text="Save"
+        android:layout_margin="10dp"
+        android:background="@color/possible_result_points"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        />
+
+</LinearLayout>

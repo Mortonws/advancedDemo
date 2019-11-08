@@ -22,18 +22,30 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-                  android:hardwareAccelerated="true">
+        <activity
+            android:name=".MainActivity"
+            android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:scheme="sangw"
+                    android:host="com.sang.wu"/>
+            </intent-filter>
         </activity>
 
         <activity
             android:name=".emoji.EmojiActivity"
-            android:screenOrientation="nosensor"/>
+            android:theme="@style/AppTheme.FullScreen"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".singleTask.ActivityA"
@@ -77,7 +89,7 @@
 
         <activity
             android:name=".rotationSensor.RotationSensorActivity"
-            android:screenOrientation="nosensor" />
+            android:screenOrientation="nosensor"/>
 
         <activity
             android:name=".contacts.ReadContactActivity"
@@ -127,18 +139,40 @@
         <activity
             android:name=".scrollView.DispatchScrollActivity"
             android:screenOrientation="nosensor"/>
-        <activity android:name=".eventBus.EventBusActivity"
-            android:screenOrientation="nosensor" />
-        <activity android:name=".fragmentAdapter.UserViewPagerActivity"
-                  android:screenOrientation="nosensor" />
+        <activity
+            android:name=".eventBus.EventBusActivity"
+            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".fragmentAdapter.UserViewPagerActivity"
+            android:screenOrientation="nosensor"/>
 
         <service android:name=".anr.ANRService"/>
 
-        <activity android:name=".liveDataDemo.LifecycleDemoActivity"
-                  android:screenOrientation="nosensor" />
-        <activity android:name=".liveDataDemo.LiveDataDemoActivity"
-                  android:screenOrientation="nosensor" />
+        <activity
+            android:name=".liveDataDemo.LifecycleDemoActivity"
+            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".liveDataDemo.LiveDataDemoActivity"
+            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".dialogActivity.DialogActivity"
+            android:screenOrientation="nosensor"
+            android:theme="@style/Theme.Transparent"/>
+        <activity
+            android:name=".threadTest.ThreadDemoActivity"
+            android:screenOrientation="nosensor"/>
 
+        <activity
+            android:name=".newScrollerDemo.NewScrollerDemoActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".simpleActivity.SimpleActivity"
+            android:screenOrientation="nosensor" />
+
+        <activity android:name=".writeText2SDFile.WriteText2SDFileActivity"
+            android:screenOrientation="nosensor" />
+
+        <activity android:name=".classInstanceTest.ClassInstanceTestActivity"
+            android:screenOrientation="nosensor" />
     </application>
 
 </manifest>
