@@ -35,6 +35,11 @@ public class DialogEdit extends Dialog {
         setCanceledOnTouchOutside(true);//点击外部Dialog消失
     }
 
+    @Override
+    public void show() {
+        super.show();
+    }
+
     public RelativeLayout getDialogRootView() {
         return findViewById(R.id.dialog_root);
     }

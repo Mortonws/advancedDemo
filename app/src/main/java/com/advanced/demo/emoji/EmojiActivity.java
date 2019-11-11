@@ -206,10 +206,9 @@ public class EmojiActivity extends BaseActivity {
         });
     }
 
+    private int mLayoutBottomLocation = 0;
     private void onDialogShow() {
         mDialogHeight = mDialogEdit.getDialogRootView().getMeasuredHeight();
-        Log.e(TAG, "mDialogHeight = " + mDialogHeight);
-        mLayoutRootView.scrollBy(0, mDialogHeight);
         mDialogEdit.getDialogRootView().addOnLayoutChangeListener(mOnLayoutChangeListener);
     }
 
@@ -218,18 +217,35 @@ public class EmojiActivity extends BaseActivity {
         @Override
         public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
             View view = mDialogEdit.getDialogRootView();
-            int[] locations = new int[2];
-            view.getLocationOnScreen(locations);
+            int[] dialogRootViewLocations = new int[2];
+            view.getLocationOnScreen(dialogRootViewLocations);
+            int dialogHeight = view.getMeasuredHeight();
+            int dialogBottom = dialogHeight + dialogRootViewLocations[1];
+            String dialogMsg = String.format(Locale.getDefault(), "locY:%s; dialogHeight:%s; bottom:%s", dialogRootViewLocations[1], dialogHeight, dialogBottom);
+            Log.e(TAG, dialogMsg);
 
-            String msg = String.format(Locale.getDefault(), "oldBottom=%s; bottom=%s; dBttom=%s", oldBottom, bottom, (oldBottom - bottom));
-            Log.e(TAG, "[onLayoutChange]" + msg);
-            Log.e(TAG, "location_1=" + locations[1]);
+            int[] rootViewLocations = new int[2];
+            mLayoutRootView.getLocationOnScreen(rootViewLocations);
+            int layoutBottom = mLayoutRootView.getMeasuredHeight() + rootViewLocations[1];
+            mLayoutBottomLocation = layoutBottom;
+            String rootMsg = String.format(Locale.getDefault(), "rootLocY:%s, rootViewHeight;%s; layoutBottom=%s", rootViewLocations[1], mLayoutRootView.getMeasuredHeight(), layoutBottom);
+            Log.e(TAG, rootMsg);
+
+            if (dialogBottom < layoutBottom) {
+                int scrollY = (layoutBottom - dialogBottom)/2;
+                Log.e(TAG, "scrollY = " + scrollY);
+                mLayoutRootView.scrollTo(0, scrollY);
+            } if (dialogBottom == layoutBottom) {
+                mLayoutRootView.scrollTo(0, 0);
+            }
+
         }
     };
 
     private void onDialogDismiss() {
-        mLayoutRootView.scrollBy(0, -mDialogHeight);
+//        mLayoutRootView.scrollBy(0, -mDialogHeight);
         mDialogEdit.getDialogRootView().removeOnLayoutChangeListener(mOnLayoutChangeListener);
+        mLayoutRootView.scrollTo(0, 0);
     }
 
     private void requestByRetrofit() {
