@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -47,7 +48,6 @@ public class EmojiActivity extends BaseActivity {
 
     private String mDefaultUrlContent = "https://www.baidu.com?keywords=今天天气不错";
     private DialogEdit mDialogEdit;
-    private int mDialogHeight = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -195,6 +195,7 @@ public class EmojiActivity extends BaseActivity {
         mDialogEdit.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
+                Log.e(TAG, "[onShow]");
                 onDialogShow();
             }
         });
@@ -208,15 +209,53 @@ public class EmojiActivity extends BaseActivity {
 
     private int mLayoutBottomLocation = 0;
     private void onDialogShow() {
-        mDialogHeight = mDialogEdit.getDialogRootView().getMeasuredHeight();
-        mDialogEdit.getDialogRootView().addOnLayoutChangeListener(mOnLayoutChangeListener);
+        mDialogEdit.getEditText().addOnLayoutChangeListener(mOnLayoutChangeListener);
+        mDialogEdit.getEditText().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                View view = mDialogEdit.getEditText();
+                int[] dialogRootViewLocations = new int[2];
+                view.getLocationOnScreen(dialogRootViewLocations);
+                int dialogHeight = view.getMeasuredHeight();
+                int dialogBottom = dialogHeight + dialogRootViewLocations[1];
+                String dialogMsg = String.format(Locale.getDefault(), "[onDialogShow]locY:%s; dialogHeight:%s; bottom:%s", dialogRootViewLocations[1], dialogHeight, dialogBottom);
+                Log.e(TAG, dialogMsg);
+            }
+        }, 100);
+        getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                Log.e(TAG , "[onLayoutChange]");
+
+                View view = mDialogEdit.getEditText();
+                int[] dialogRootViewLocations = new int[2];
+                view.getLocationOnScreen(dialogRootViewLocations);
+                int dialogHeight = view.getMeasuredHeight();
+                int dialogBottom = dialogHeight + dialogRootViewLocations[1];
+                String dialogMsg = String.format(Locale.getDefault(),
+                        "[getDecorView][onLayoutChange]locY:%s; dialogHeight:%s; bottom:%s", dialogRootViewLocations[1], dialogHeight, dialogBottom);
+                Log.e(TAG, dialogMsg);
+            }
+        });
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Log.e(TAG , "[onGlobalLayout]");
+            }
+        });
+        mDialogEdit.getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+
+            }
+        });
     }
 
     private View.OnLayoutChangeListener mOnLayoutChangeListener = new View.OnLayoutChangeListener() {
 
         @Override
         public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-            View view = mDialogEdit.getDialogRootView();
+            View view = mDialogEdit.getEditText();
             int[] dialogRootViewLocations = new int[2];
             view.getLocationOnScreen(dialogRootViewLocations);
             int dialogHeight = view.getMeasuredHeight();
@@ -239,12 +278,16 @@ public class EmojiActivity extends BaseActivity {
                 mLayoutRootView.scrollTo(0, 0);
             }
 
+            int[] viewOnWindow = new int[2];
+            view.getLocationInWindow(viewOnWindow);
+            Log.e(TAG, "window = " + viewOnWindow[1]);
+
         }
     };
 
     private void onDialogDismiss() {
 //        mLayoutRootView.scrollBy(0, -mDialogHeight);
-        mDialogEdit.getDialogRootView().removeOnLayoutChangeListener(mOnLayoutChangeListener);
+        mDialogEdit.getEditText().removeOnLayoutChangeListener(mOnLayoutChangeListener);
         mLayoutRootView.scrollTo(0, 0);
     }
 
